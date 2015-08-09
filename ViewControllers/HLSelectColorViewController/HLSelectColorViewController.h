@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HLColorPicker.h"
+
 
 @interface HLSelectColorViewController : UIViewController
 

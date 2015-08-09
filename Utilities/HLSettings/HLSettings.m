@@ -80,6 +80,17 @@
     [self synchronize];
 }
 
+- (NSArray *)previousColorsList {
+    NSData *data = [_userDefaults dataForKey:@"previousColorsList"];
+    return [NSKeyedUnarchiver unarchiveObjectWithData:data];
+}
+
+- (void)setPreviousColorsList:(NSArray *)previousColorsList {
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:previousColorsList];
+    [_userDefaults setObject:data forKey:@"previousColorsList"];
+    [self synchronize];
+}
+
 #pragma mark - Private Methods
 - (void)synchronize {
     [_userDefaults synchronize];

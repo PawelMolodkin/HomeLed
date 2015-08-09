@@ -37,6 +37,10 @@
 		7ED959151B72788500925CF6 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED959141B72788500925CF6 /* CoreAudio.framework */; };
 		7ED959171B7278B200925CF6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED959161B7278B200925CF6 /* AVFoundation.framework */; };
 		7ED959191B7278D200925CF6 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED959181B7278D200925CF6 /* CoreMedia.framework */; };
+		C4880C6D1B750FE30040B43C /* HLPreviousColorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4880C6B1B750FE30040B43C /* HLPreviousColorsViewController.m */; };
+		C4880C6E1B750FE30040B43C /* HLPreviousColorsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4880C6C1B750FE30040B43C /* HLPreviousColorsViewController.xib */; };
+		C4FA8B011B76055C00769242 /* HLPreviousColorsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FA8AFF1B76055C00769242 /* HLPreviousColorsCell.m */; };
+		C4FA8B021B76055C00769242 /* HLPreviousColorsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4FA8B001B76055C00769242 /* HLPreviousColorsCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +108,12 @@
 		7ED959141B72788500925CF6 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		7ED959161B7278B200925CF6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		7ED959181B7278D200925CF6 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		C4880C6A1B750FE30040B43C /* HLPreviousColorsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HLPreviousColorsViewController.h; path = ViewControllers/HLPreviousColorsViewController.h; sourceTree = "<group>"; };
+		C4880C6B1B750FE30040B43C /* HLPreviousColorsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HLPreviousColorsViewController.m; path = ViewControllers/HLPreviousColorsViewController.m; sourceTree = "<group>"; };
+		C4880C6C1B750FE30040B43C /* HLPreviousColorsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HLPreviousColorsViewController.xib; path = ViewControllers/HLPreviousColorsViewController.xib; sourceTree = "<group>"; };
+		C4FA8AFE1B76055C00769242 /* HLPreviousColorsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLPreviousColorsCell.h; sourceTree = "<group>"; };
+		C4FA8AFF1B76055C00769242 /* HLPreviousColorsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLPreviousColorsCell.m; sourceTree = "<group>"; };
+		C4FA8B001B76055C00769242 /* HLPreviousColorsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HLPreviousColorsCell.xib; sourceTree = "<group>"; };
 		E1CE961B85C8A5BA9F65D906 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FEE9C0DE83B2A2667E7699C7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -150,10 +160,12 @@
 		7E55FCCB1B73EF9100F9DD75 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C4880C6F1B750FF30040B43C /* New Group */,
 				7E55FD101B74137200F9DD75 /* HLSelectColorViewController */,
 				7E55FCD21B73F00700F9DD75 /* HLWelcomeViewController */,
 				7E55FCD11B73F00000F9DD75 /* HLGeneralPaintViewController */,
 				7E55FCD01B73EFF700F9DD75 /* HLGeneralPaintTableDataSource */,
+				C4880C701B7510040040B43C /* HLPreviousColorsViewController */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -219,6 +231,7 @@
 				7E55FCFA1B73F8BE00F9DD75 /* HLChangeColorCell */,
 				7E55FCE91B73F24500F9DD75 /* HLBaseCell */,
 				7E55FCE81B73F23A00F9DD75 /* HLNetworkAddressCell */,
+				C4FA8B031B76056600769242 /* HLPreviousColorsCell */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -387,6 +400,33 @@
 			name = external;
 			sourceTree = "<group>";
 		};
+		C4880C6F1B750FF30040B43C /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
+		C4880C701B7510040040B43C /* HLPreviousColorsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C4880C6A1B750FE30040B43C /* HLPreviousColorsViewController.h */,
+				C4880C6B1B750FE30040B43C /* HLPreviousColorsViewController.m */,
+				C4880C6C1B750FE30040B43C /* HLPreviousColorsViewController.xib */,
+			);
+			name = HLPreviousColorsViewController;
+			sourceTree = "<group>";
+		};
+		C4FA8B031B76056600769242 /* HLPreviousColorsCell */ = {
+			isa = PBXGroup;
+			children = (
+				C4FA8AFE1B76055C00769242 /* HLPreviousColorsCell.h */,
+				C4FA8AFF1B76055C00769242 /* HLPreviousColorsCell.m */,
+				C4FA8B001B76055C00769242 /* HLPreviousColorsCell.xib */,
+			);
+			name = HLPreviousColorsCell;
+			sourceTree = "<group>";
+		};
 		FE8D76CEFDCB942CA304C0FA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -483,8 +523,10 @@
 				7E55FD151B74139100F9DD75 /* HLSelectColorViewController.xib in Resources */,
 				7E55FD021B73F93F00F9DD75 /* HLChangeColorCell.xib in Resources */,
 				7E55FCE71B73F19D00F9DD75 /* HLNetworkAddressCell.xib in Resources */,
+				C4880C6E1B750FE30040B43C /* HLPreviousColorsViewController.xib in Resources */,
 				7E55FCC71B73EF7900F9DD75 /* LaunchScreen.xib in Resources */,
 				7E55FCC81B73EF7900F9DD75 /* Main.storyboard in Resources */,
+				C4FA8B021B76055C00769242 /* HLPreviousColorsCell.xib in Resources */,
 				7E55FD0F1B740E2900F9DD75 /* HLMultiColorsCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -540,7 +582,9 @@
 				7E55FCD51B73F00F00F9DD75 /* HLGeneralPaintTableDataSource.m in Sources */,
 				7E55FCE11B73F04000F9DD75 /* HLRemoteClient.mm in Sources */,
 				7E55FD091B7405C800F9DD75 /* HLColorPicker.m in Sources */,
+				C4FA8B011B76055C00769242 /* HLPreviousColorsCell.m in Sources */,
 				7E55FCF81B73F8A200F9DD75 /* NKOColorPickerView.m in Sources */,
+				C4880C6D1B750FE30040B43C /* HLPreviousColorsViewController.m in Sources */,
 				7E55FCD91B73F01800F9DD75 /* HLGeneralPaintViewController.m in Sources */,
 				7E55FCE61B73F19D00F9DD75 /* HLNetworkAddressCell.m in Sources */,
 				7E55FCF01B73F5AA00F9DD75 /* HLSettings.m in Sources */,

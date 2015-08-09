@@ -14,6 +14,7 @@
 @property (strong, nonatomic) NSNumber *port;
 @property (strong, nonatomic) UIColor *entireStripColor;
 @property (strong, nonatomic) NSArray *multiColorsList;
+@property (strong, nonatomic) NSArray *previousColorsList;
 
 + (instancetype)shared;
 
