@@ -41,6 +41,7 @@
 		C4880C6E1B750FE30040B43C /* HLPreviousColorsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4880C6C1B750FE30040B43C /* HLPreviousColorsViewController.xib */; };
 		C4FA8B011B76055C00769242 /* HLPreviousColorsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FA8AFF1B76055C00769242 /* HLPreviousColorsCell.m */; };
 		C4FA8B021B76055C00769242 /* HLPreviousColorsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4FA8B001B76055C00769242 /* HLPreviousColorsCell.xib */; };
+		C4FA8B061B7B47F400769242 /* HLSaveLoadColorsView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FA8B051B7B47F400769242 /* HLSaveLoadColorsView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,8 @@
 		C4FA8AFE1B76055C00769242 /* HLPreviousColorsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLPreviousColorsCell.h; sourceTree = "<group>"; };
 		C4FA8AFF1B76055C00769242 /* HLPreviousColorsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLPreviousColorsCell.m; sourceTree = "<group>"; };
 		C4FA8B001B76055C00769242 /* HLPreviousColorsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HLPreviousColorsCell.xib; sourceTree = "<group>"; };
+		C4FA8B041B7B47F400769242 /* HLSaveLoadColorsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLSaveLoadColorsView.h; sourceTree = "<group>"; };
+		C4FA8B051B7B47F400769242 /* HLSaveLoadColorsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLSaveLoadColorsView.m; sourceTree = "<group>"; };
 		E1CE961B85C8A5BA9F65D906 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FEE9C0DE83B2A2667E7699C7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -296,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				7E55FD041B74059C00F9DD75 /* HLColorPicker */,
+				C4FA8B071B7B47FF00769242 /* HLSaveLoadView */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -425,6 +429,15 @@
 				C4FA8B001B76055C00769242 /* HLPreviousColorsCell.xib */,
 			);
 			name = HLPreviousColorsCell;
+			sourceTree = "<group>";
+		};
+		C4FA8B071B7B47FF00769242 /* HLSaveLoadView */ = {
+			isa = PBXGroup;
+			children = (
+				C4FA8B041B7B47F400769242 /* HLSaveLoadColorsView.h */,
+				C4FA8B051B7B47F400769242 /* HLSaveLoadColorsView.m */,
+			);
+			name = HLSaveLoadView;
 			sourceTree = "<group>";
 		};
 		FE8D76CEFDCB942CA304C0FA /* Pods */ = {
@@ -592,6 +605,7 @@
 				7E55FD0D1B740DB700F9DD75 /* HLMultiColorsCell.m in Sources */,
 				7E55FD001B73F90B00F9DD75 /* HLChangeColorCell.m in Sources */,
 				7E55FCEC1B73F25B00F9DD75 /* HLBaseCell.m in Sources */,
+				C4FA8B061B7B47F400769242 /* HLSaveLoadColorsView.m in Sources */,
 				7E55FD141B74139100F9DD75 /* HLSelectColorViewController.m in Sources */,
 				7E55FCBD1B73EF5E00F9DD75 /* main.m in Sources */,
 			);

@@ -13,6 +13,7 @@
 
 @interface HLGeneralPaintTableDataSource () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UIViewController *viewController;
 @end
 
 @implementation HLGeneralPaintTableDataSource {
@@ -73,6 +74,8 @@
 - (HLMultiColorsCell *)multiColorsCell {
     if (!_multiColorsCell) {
         _multiColorsCell = (HLMultiColorsCell *)[[NSBundle mainBundle] loadNibNamed:@"HLMultiColorsCell" owner:self options:nil].firstObject;
+        _multiColorsCell.viewController = _viewController;
+        [_multiColorsCell initialize];
     }
     return _multiColorsCell;
 }

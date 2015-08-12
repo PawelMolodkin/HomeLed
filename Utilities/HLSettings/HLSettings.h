@@ -15,6 +15,7 @@
 @property (strong, nonatomic) UIColor *entireStripColor;
 @property (strong, nonatomic) NSArray *multiColorsList;
 @property (strong, nonatomic) NSArray *previousColorsList;
+@property (strong, nonatomic) NSArray *savedColorsArray;
 
 + (instancetype)shared;
 

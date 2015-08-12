@@ -91,6 +91,17 @@
     [self synchronize];
 }
 
+- (NSArray *)savedColorsArray {
+    NSData *data = [_userDefaults dataForKey:@"savedColorsArray"];
+    return [NSKeyedUnarchiver unarchiveObjectWithData:data];
+}
+
+- (void)setSavedColorsArray:(NSArray *)savedColorsArray {
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:savedColorsArray];
+    [_userDefaults setObject:data forKey:@"savedColorsArray"];
+    [self synchronize];
+}
+
 #pragma mark - Private Methods
 - (void)synchronize {
     [_userDefaults synchronize];

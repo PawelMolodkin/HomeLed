@@ -8,6 +8,7 @@
 
 #import "HLSelectColorViewController.h"
 #import "HLMultiColorsCell.h"
+#import "HLSaveLoadColorsView.h"
 #import "HLRemoteClient.h"
 
 static CGFloat kColorLineHeight = 40.f;
@@ -95,8 +96,12 @@ static CGFloat kColorLineHeight = 40.f;
 @implementation HLMultiColorsCell
 
 #pragma mark - Initialization
+
 - (void)awakeFromNib {
     [super awakeFromNib];
+}
+
+- (void)initialize {
     _colorsListContentView.hidden = YES;
     _addColorButton.hidden = YES;
     self.colorsArray = [HLSettings shared].multiColorsList;
@@ -173,6 +178,9 @@ static CGFloat kColorLineHeight = 40.f;
     [_colorsListContentView removeFromSuperview];
     _colorsListContentView = [UIView new];
     [self.contentView addSubview:_colorsListContentView];
+    HLSaveLoadColorsView *saveLoadView = [[HLSaveLoadColorsView alloc] init];
+    saveLoadView.viewController = _viewController;
+    [_colorsListContentView addSubview:saveLoadView];
     NSInteger counter = 0;
     __weak typeof(self) wself = self;
     for (UIColor *color in _colorsArray) {
