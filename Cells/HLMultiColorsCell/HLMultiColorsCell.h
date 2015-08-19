@@ -10,4 +10,8 @@
 
 @interface HLMultiColorsCell : HLBaseCell
 
+@property(nonatomic, weak) UIViewController *viewController;
+
+- (void)initialize;
+
 @end

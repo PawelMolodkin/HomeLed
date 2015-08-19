@@ -12,17 +12,17 @@
     NSUserDefaults *_userDefaults;
 }
 
-+ (instancetype)shared {
++ (instancetype)shared
+{
     static HLSettings *sharedInstance = nil;
     static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedInstance = [HLSettings new];
-    });
+    dispatch_once(&onceToken, ^{ sharedInstance = [HLSettings new]; });
     return sharedInstance;
 }
 
 #pragma mark - Initialization
-- (id)init {
+- (id)init
+{
     if (self = [super init]) {
         _userDefaults = [NSUserDefaults standardUserDefaults];
         if (!self.multiColorsList) {
@@ -32,67 +32,83 @@
     return self;
 }
 
-- (void)resetToDefaults {
+- (void)resetToDefaults
+{
     self.ipAddress = @"192.168.100.12";
     self.port = @(8090);
     self.entireStripColor = [UIColor colorWithRed:255 green:128 blue:0 alpha:1.f];
-    self.multiColorsList = @[[UIColor redColor], [UIColor greenColor]];
+    self.multiColorsList = @[ [UIColor redColor], [UIColor greenColor] ];
 }
 
 #pragma mark - Accessors
-- (NSString *)ipAddress {
-    return [_userDefaults stringForKey:@"ipAddress"];
-}
+- (NSString *)ipAddress { return [_userDefaults stringForKey:@"ipAddress"]; }
 
-- (void)setIpAddress:(NSString *)ipAddress {
+- (void)setIpAddress:(NSString *)ipAddress
+{
     [_userDefaults setObject:ipAddress forKey:@"ipAddress"];
     [self synchronize];
 }
 
-- (NSNumber *)port {
-    return [_userDefaults objectForKey:@"port"];
-}
+- (NSNumber *)port { return [_userDefaults objectForKey:@"port"]; }
 
-- (void)setPort:(NSNumber *)port {
+- (void)setPort:(NSNumber *)port
+{
     [_userDefaults setObject:port forKey:@"port"];
     [self synchronize];
 }
 
-- (UIColor *)entireStripColor {
+- (UIColor *)entireStripColor
+{
     NSData *data = [_userDefaults dataForKey:@"entireStripColor"];
     return [NSKeyedUnarchiver unarchiveObjectWithData:data];
 }
 
-- (void)setEntireStripColor:(UIColor *)entireStripColor {
+- (void)setEntireStripColor:(UIColor *)entireStripColor
+{
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:entireStripColor];
     [_userDefaults setObject:data forKey:@"entireStripColor"];
     [self synchronize];
 }
 
-- (NSArray *)multiColorsList {
+- (NSArray *)multiColorsList
+{
     NSData *data = [_userDefaults dataForKey:@"multiColorsList"];
     return [NSKeyedUnarchiver unarchiveObjectWithData:data];
 }
 
-- (void)setMultiColorsList:(NSArray *)multiColorsList {
+- (void)setMultiColorsList:(NSArray *)multiColorsList
+{
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:multiColorsList];
     [_userDefaults setObject:data forKey:@"multiColorsList"];
     [self synchronize];
 }
 
-- (NSArray *)previousColorsList {
+- (NSArray *)previousColorsList
+{
     NSData *data = [_userDefaults dataForKey:@"previousColorsList"];
     return [NSKeyedUnarchiver unarchiveObjectWithData:data];
 }
 
-- (void)setPreviousColorsList:(NSArray *)previousColorsList {
+- (void)setPreviousColorsList:(NSArray *)previousColorsList
+{
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:previousColorsList];
     [_userDefaults setObject:data forKey:@"previousColorsList"];
     [self synchronize];
 }
 
-#pragma mark - Private Methods
-- (void)synchronize {
-    [_userDefaults synchronize];
+- (NSArray *)savedColorsArray
+{
+    NSData *data = [_userDefaults dataForKey:@"savedColorsArray"];
+    return [NSKeyedUnarchiver unarchiveObjectWithData:data];
 }
+
+- (void)setSavedColorsArray:(NSArray *)savedColorsArray
+{
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:savedColorsArray];
+    [_userDefaults setObject:data forKey:@"savedColorsArray"];
+    [self synchronize];
+}
+
+#pragma mark - Private Methods
+- (void)synchronize { [_userDefaults synchronize]; }
 @end

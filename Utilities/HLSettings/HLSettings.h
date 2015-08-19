@@ -10,11 +10,12 @@
 
 @interface HLSettings : NSObject
 
-@property (strong, nonatomic) NSString *ipAddress;
-@property (strong, nonatomic) NSNumber *port;
-@property (strong, nonatomic) UIColor *entireStripColor;
-@property (strong, nonatomic) NSArray *multiColorsList;
-@property (strong, nonatomic) NSArray *previousColorsList;
+@property(strong, nonatomic) NSString *ipAddress;
+@property(strong, nonatomic) NSNumber *port;
+@property(strong, nonatomic) UIColor *entireStripColor;
+@property(strong, nonatomic) NSArray *multiColorsList;
+@property(strong, nonatomic) NSArray *previousColorsList;
+@property(strong, nonatomic) NSArray *savedColorsArray;
 
 + (instancetype)shared;
 
