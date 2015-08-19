@@ -41,6 +41,14 @@
 		C4880C6E1B750FE30040B43C /* HLPreviousColorsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4880C6C1B750FE30040B43C /* HLPreviousColorsViewController.xib */; };
 		C4FA8B011B76055C00769242 /* HLPreviousColorsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FA8AFF1B76055C00769242 /* HLPreviousColorsCell.m */; };
 		C4FA8B021B76055C00769242 /* HLPreviousColorsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4FA8B001B76055C00769242 /* HLPreviousColorsCell.xib */; };
+		C4FA8B061B7B47F400769242 /* HLSaveLoadColorsView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FA8B051B7B47F400769242 /* HLSaveLoadColorsView.m */; };
+		C4FA8B131B7C978E00769242 /* HLLoadColorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FA8B111B7C978E00769242 /* HLLoadColorsViewController.m */; };
+		C4FA8B141B7C978E00769242 /* HLLoadColorsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4FA8B121B7C978E00769242 /* HLLoadColorsViewController.xib */; };
+		C4FA8B171B7E056F00769242 /* HLSaveLoadColorsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4FA8B161B7E056F00769242 /* HLSaveLoadColorsView.xib */; };
+		C4FA8B1B1B7E27EB00769242 /* HLColorLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FA8B1A1B7E27EB00769242 /* HLColorLineView.m */; };
+		C4FA8B1D1B7E3C0D00769242 /* HLColorLineView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4FA8B1C1B7E3C0D00769242 /* HLColorLineView.xib */; };
+		C4FA8B271B838EF500769242 /* HLSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FA8B251B838EF500769242 /* HLSlider.m */; };
+		C4FA8B281B838EF500769242 /* HLSlider.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4FA8B261B838EF500769242 /* HLSlider.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +122,18 @@
 		C4FA8AFE1B76055C00769242 /* HLPreviousColorsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLPreviousColorsCell.h; sourceTree = "<group>"; };
 		C4FA8AFF1B76055C00769242 /* HLPreviousColorsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLPreviousColorsCell.m; sourceTree = "<group>"; };
 		C4FA8B001B76055C00769242 /* HLPreviousColorsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HLPreviousColorsCell.xib; sourceTree = "<group>"; };
+		C4FA8B041B7B47F400769242 /* HLSaveLoadColorsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLSaveLoadColorsView.h; sourceTree = "<group>"; };
+		C4FA8B051B7B47F400769242 /* HLSaveLoadColorsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLSaveLoadColorsView.m; sourceTree = "<group>"; };
+		C4FA8B101B7C978E00769242 /* HLLoadColorsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLLoadColorsViewController.h; sourceTree = "<group>"; };
+		C4FA8B111B7C978E00769242 /* HLLoadColorsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLLoadColorsViewController.m; sourceTree = "<group>"; };
+		C4FA8B121B7C978E00769242 /* HLLoadColorsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HLLoadColorsViewController.xib; sourceTree = "<group>"; };
+		C4FA8B161B7E056F00769242 /* HLSaveLoadColorsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HLSaveLoadColorsView.xib; sourceTree = "<group>"; };
+		C4FA8B191B7E27EB00769242 /* HLColorLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLColorLineView.h; sourceTree = "<group>"; };
+		C4FA8B1A1B7E27EB00769242 /* HLColorLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLColorLineView.m; sourceTree = "<group>"; };
+		C4FA8B1C1B7E3C0D00769242 /* HLColorLineView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HLColorLineView.xib; sourceTree = "<group>"; };
+		C4FA8B241B838EF500769242 /* HLSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLSlider.h; sourceTree = "<group>"; };
+		C4FA8B251B838EF500769242 /* HLSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLSlider.m; sourceTree = "<group>"; };
+		C4FA8B261B838EF500769242 /* HLSlider.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HLSlider.xib; sourceTree = "<group>"; };
 		E1CE961B85C8A5BA9F65D906 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FEE9C0DE83B2A2667E7699C7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -160,7 +180,7 @@
 		7E55FCCB1B73EF9100F9DD75 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				C4880C6F1B750FF30040B43C /* New Group */,
+				C4FA8B151B7C979300769242 /* HLLoadColorsViewController */,
 				7E55FD101B74137200F9DD75 /* HLSelectColorViewController */,
 				7E55FCD21B73F00700F9DD75 /* HLWelcomeViewController */,
 				7E55FCD11B73F00000F9DD75 /* HLGeneralPaintViewController */,
@@ -295,7 +315,10 @@
 		7E55FD031B74059600F9DD75 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C4FA8B1E1B838B8300769242 /* HLSlider */,
+				C4FA8B181B7E27A700769242 /* HLColorLineView */,
 				7E55FD041B74059C00F9DD75 /* HLColorPicker */,
+				C4FA8B071B7B47FF00769242 /* HLSaveLoadView */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -400,13 +423,6 @@
 			name = external;
 			sourceTree = "<group>";
 		};
-		C4880C6F1B750FF30040B43C /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "New Group";
-			sourceTree = "<group>";
-		};
 		C4880C701B7510040040B43C /* HLPreviousColorsViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -425,6 +441,46 @@
 				C4FA8B001B76055C00769242 /* HLPreviousColorsCell.xib */,
 			);
 			name = HLPreviousColorsCell;
+			sourceTree = "<group>";
+		};
+		C4FA8B071B7B47FF00769242 /* HLSaveLoadView */ = {
+			isa = PBXGroup;
+			children = (
+				C4FA8B041B7B47F400769242 /* HLSaveLoadColorsView.h */,
+				C4FA8B051B7B47F400769242 /* HLSaveLoadColorsView.m */,
+				C4FA8B161B7E056F00769242 /* HLSaveLoadColorsView.xib */,
+			);
+			name = HLSaveLoadView;
+			sourceTree = "<group>";
+		};
+		C4FA8B151B7C979300769242 /* HLLoadColorsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C4FA8B101B7C978E00769242 /* HLLoadColorsViewController.h */,
+				C4FA8B111B7C978E00769242 /* HLLoadColorsViewController.m */,
+				C4FA8B121B7C978E00769242 /* HLLoadColorsViewController.xib */,
+			);
+			name = HLLoadColorsViewController;
+			sourceTree = "<group>";
+		};
+		C4FA8B181B7E27A700769242 /* HLColorLineView */ = {
+			isa = PBXGroup;
+			children = (
+				C4FA8B191B7E27EB00769242 /* HLColorLineView.h */,
+				C4FA8B1A1B7E27EB00769242 /* HLColorLineView.m */,
+				C4FA8B1C1B7E3C0D00769242 /* HLColorLineView.xib */,
+			);
+			name = HLColorLineView;
+			sourceTree = "<group>";
+		};
+		C4FA8B1E1B838B8300769242 /* HLSlider */ = {
+			isa = PBXGroup;
+			children = (
+				C4FA8B241B838EF500769242 /* HLSlider.h */,
+				C4FA8B251B838EF500769242 /* HLSlider.m */,
+				C4FA8B261B838EF500769242 /* HLSlider.xib */,
+			);
+			name = HLSlider;
 			sourceTree = "<group>";
 		};
 		FE8D76CEFDCB942CA304C0FA /* Pods */ = {
@@ -523,9 +579,13 @@
 				7E55FD151B74139100F9DD75 /* HLSelectColorViewController.xib in Resources */,
 				7E55FD021B73F93F00F9DD75 /* HLChangeColorCell.xib in Resources */,
 				7E55FCE71B73F19D00F9DD75 /* HLNetworkAddressCell.xib in Resources */,
+				C4FA8B1D1B7E3C0D00769242 /* HLColorLineView.xib in Resources */,
 				C4880C6E1B750FE30040B43C /* HLPreviousColorsViewController.xib in Resources */,
 				7E55FCC71B73EF7900F9DD75 /* LaunchScreen.xib in Resources */,
 				7E55FCC81B73EF7900F9DD75 /* Main.storyboard in Resources */,
+				C4FA8B141B7C978E00769242 /* HLLoadColorsViewController.xib in Resources */,
+				C4FA8B281B838EF500769242 /* HLSlider.xib in Resources */,
+				C4FA8B171B7E056F00769242 /* HLSaveLoadColorsView.xib in Resources */,
 				C4FA8B021B76055C00769242 /* HLPreviousColorsCell.xib in Resources */,
 				7E55FD0F1B740E2900F9DD75 /* HLMultiColorsCell.xib in Resources */,
 			);
@@ -578,11 +638,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4FA8B131B7C978E00769242 /* HLLoadColorsViewController.m in Sources */,
 				7E55FCC01B73EF6800F9DD75 /* AppDelegate.m in Sources */,
 				7E55FCD51B73F00F00F9DD75 /* HLGeneralPaintTableDataSource.m in Sources */,
 				7E55FCE11B73F04000F9DD75 /* HLRemoteClient.mm in Sources */,
 				7E55FD091B7405C800F9DD75 /* HLColorPicker.m in Sources */,
 				C4FA8B011B76055C00769242 /* HLPreviousColorsCell.m in Sources */,
+				C4FA8B1B1B7E27EB00769242 /* HLColorLineView.m in Sources */,
 				7E55FCF81B73F8A200F9DD75 /* NKOColorPickerView.m in Sources */,
 				C4880C6D1B750FE30040B43C /* HLPreviousColorsViewController.m in Sources */,
 				7E55FCD91B73F01800F9DD75 /* HLGeneralPaintViewController.m in Sources */,
@@ -592,6 +654,8 @@
 				7E55FD0D1B740DB700F9DD75 /* HLMultiColorsCell.m in Sources */,
 				7E55FD001B73F90B00F9DD75 /* HLChangeColorCell.m in Sources */,
 				7E55FCEC1B73F25B00F9DD75 /* HLBaseCell.m in Sources */,
+				C4FA8B271B838EF500769242 /* HLSlider.m in Sources */,
+				C4FA8B061B7B47F400769242 /* HLSaveLoadColorsView.m in Sources */,
 				7E55FD141B74139100F9DD75 /* HLSelectColorViewController.m in Sources */,
 				7E55FCBD1B73EF5E00F9DD75 /* main.m in Sources */,
 			);

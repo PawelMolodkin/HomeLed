@@ -1,0 +1,122 @@
+//
+//  HLSlider.m
+//  HomeLed
+//
+//  Created by Pavel Molodkin on 18.08.15.
+//  Copyright © 2015 Voevoda's Incorporated. All rights reserved.
+//
+
+#import "HLSlider.h"
+
+@interface HLSlider ()
+
+@property(strong, nonatomic) IBOutlet UISlider *slider;
+@property(strong, nonatomic) IBOutlet UIButton *minusButton;
+@property(strong, nonatomic) IBOutlet UIButton *plusButton;
+
+@end
+
+@implementation HLSlider
+
+- (void)awakeFromNib
+{
+    self.slider = [UISlider new];
+    self.minusButton = [UIButton new];
+    self.plusButton = [UIButton new];
+
+    [_minusButton setTitle:@"-" forState:UIControlStateNormal];
+    [_minusButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_plusButton setTitle:@"+" forState:UIControlStateNormal];
+    [_plusButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+
+    [_minusButton addTarget:self action:@selector(tappedMinusButton:) forControlEvents:UIControlEventTouchUpInside];
+    [_plusButton addTarget:self action:@selector(tappedPlusButton:) forControlEvents:UIControlEventTouchUpInside];
+    [_slider addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
+    [self addSubview:_slider];
+    [self addSubview:_minusButton];
+    [self addSubview:_plusButton];
+}
+
+- (void)layoutSubviews
+{
+    [self layoutMinusButton];
+    [self layoutPlusButton];
+    [self layoutSlider];
+}
+
+- (void)layoutMinusButton
+{
+    CGRect frame = self.frame;
+    frame.origin.x = 0.f;
+    frame.origin.y = 0.f;
+    frame.size.height = self.height;
+    frame.size.width = self.height;
+    _minusButton.frame = frame;
+}
+
+- (void)layoutPlusButton
+{
+    CGRect frame = self.frame;
+    frame.origin.x = _slider.width + _minusButton.width + 10.f;
+    frame.origin.y = 0.f;
+    frame.size.height = self.height;
+    frame.size.width = self.height;
+    _plusButton.frame = frame;
+}
+
+- (void)layoutSlider
+{
+    CGRect frame = self.frame;
+    frame.origin.x = self.minusButton.width + 5.f;
+    frame.origin.y = 0.f;
+    frame.size.height = self.height;
+    frame.size.width = self.width - self.minusButton.width - self.plusButton.width;
+    _slider.frame = frame;
+}
+
+- (void)tappedMinusButton:(id)sender
+{
+    CGFloat top = 1;
+    CGFloat bottom = 255;
+    if (IsEqualFloat(_slider.value, 0)) {
+        return;
+    } else {
+        _slider.value -= top / bottom;
+        [self valueChanged:nil];
+    }
+}
+
+- (void)tappedPlusButton:(id)sender
+{
+    CGFloat top = 1;
+    CGFloat bottom = 255;
+    if (IsEqualFloat(_slider.value, 255)) {
+        return;
+    } else {
+        _slider.value += top / bottom;
+        [self valueChanged:nil];
+    }
+}
+
+- (void)valueChanged:(id)sender
+{
+    if (_valueChangedBlock) {
+        _valueChangedBlock();
+    }
+}
+
+- (CGFloat)value { return _slider.value; }
+
+- (void)setValue:(CGFloat)value { _slider.value = value; }
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end

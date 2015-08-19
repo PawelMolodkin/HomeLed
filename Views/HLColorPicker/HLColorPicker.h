@@ -9,12 +9,13 @@
 #import "NKOColorPickerView.h"
 #import <UIKit/UIKit.h>
 
-
 @interface HLColorPicker : UIView
 
 - (CGFloat)desiredHeight;
 
-@property (nonatomic, strong) NKOColorPickerDidChangeColorBlock didChangeColorBlock;
-@property (readonly, nonatomic) NKOColorPickerView *colorPicker;
+@property(nonatomic, strong) NKOColorPickerDidChangeColorBlock didChangeColorBlock;
+@property(readonly, nonatomic) NKOColorPickerView *colorPicker;
+
+- (void)sliderValueChanged:(id)sender;
 
 @end
