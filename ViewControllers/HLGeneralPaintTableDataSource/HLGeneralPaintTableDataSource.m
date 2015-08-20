@@ -14,6 +14,7 @@
 @interface HLGeneralPaintTableDataSource ()<UITableViewDelegate, UITableViewDataSource>
 @property(weak, nonatomic) IBOutlet UITableView *tableView;
 @property(strong, nonatomic) IBOutlet UIViewController *viewController;
+@property(strong, nonatomic) NSMutableArray *expandedCellsArray;
 @end
 
 @implementation HLGeneralPaintTableDataSource {
@@ -23,6 +24,14 @@
     NSInteger _indexOfChangeColorCell;
     HLMultiColorsCell *_multiColorsCell;
     NSInteger _indexOfMultiColorsCell;
+}
+
+- (id)init
+{
+    if (self = [super init]) {
+        self.expandedCellsArray = [NSMutableArray array];
+    }
+    return self;
 }
 
 #pragma mark - UITableViewDataSource
@@ -38,65 +47,77 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    HLBaseCell *cell = nil;
     if (indexPath.row == _indexOfNetworkAddressCell) {
-        return [self networkAddressCell];
+        cell = [self networkAddressCell:indexPath];
     } else if (indexPath.row == _indexOfChangeColorCell) {
-        return [self changeColorCell];
+        cell = [self changeColorCell:indexPath];
     } else if (indexPath.row == _indexOfMultiColorsCell) {
-        return [self multiColorsCell];
+        cell = [self multiColorsCell:indexPath];
     }
-    return [UITableViewCell new];
+    cell.expandedMode = [self.expandedCellsArray containsObject:indexPath];
+
+    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //  id object = [[NSBundle mainBundle] loadNibNamed:@"HLSlider" owner:self options:nil].firstObject;
     HLBaseCell *cell = (HLBaseCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
-    if (cell.expandedMode) {
+    if ([self.expandedCellsArray containsObject:indexPath]) {
         return cell.expandedHeight;
     }
     return 44.f;
 }
 
 #pragma mark - Cells Methods
-- (HLNetworkAddressCell *)networkAddressCell
+- (HLNetworkAddressCell *)networkAddressCell:(NSIndexPath *)indexPath
 {
-    if (!_networkAddressCell) {
-        _networkAddressCell =
-            (HLNetworkAddressCell *)
-            [[NSBundle mainBundle] loadNibNamed:@"HLNetworkAddressCell" owner:self options:nil].firstObject;
+    HLNetworkAddressCell *cell = [_tableView dequeueReusableCellWithIdentifier:[HLNetworkAddressCell reuseIdentifier]];
+    if (!cell) {
+        cell = (HLNetworkAddressCell *)
+               [[NSBundle mainBundle] loadNibNamed:@"HLNetworkAddressCell" owner:self options:nil].firstObject;
     }
-    return _networkAddressCell;
+    return cell;
 }
 
-- (HLChangeColorCell *)changeColorCell
+- (HLChangeColorCell *)changeColorCell:(NSIndexPath *)indexPath
 {
-    if (!_changeColorCell) {
-        _changeColorCell = (HLChangeColorCell *)
-                           [[NSBundle mainBundle] loadNibNamed:@"HLChangeColorCell" owner:self options:nil].firstObject;
+    HLChangeColorCell *cell = [_tableView dequeueReusableCellWithIdentifier:[HLChangeColorCell reuseIdentifier]];
+    if (!cell) {
+        cell = (HLChangeColorCell *)
+               [[NSBundle mainBundle] loadNibNamed:@"HLChangeColorCell" owner:self options:nil].firstObject;
     }
-    return _changeColorCell;
+    return cell;
 }
 
-- (HLMultiColorsCell *)multiColorsCell
+- (HLMultiColorsCell *)multiColorsCell:(NSIndexPath *)indexPath
 {
-    if (!_multiColorsCell) {
-        _multiColorsCell = (HLMultiColorsCell *)
-                           [[NSBundle mainBundle] loadNibNamed:@"HLMultiColorsCell" owner:self options:nil].firstObject;
-        _multiColorsCell.viewController = _viewController;
-        [_multiColorsCell initialize];
+    HLMultiColorsCell *cell = [_tableView dequeueReusableCellWithIdentifier:[HLMultiColorsCell reuseIdentifier]];
+    if (!cell) {
+        cell = (HLMultiColorsCell *)
+               [[NSBundle mainBundle] loadNibNamed:@"HLMultiColorsCell" owner:self options:nil].firstObject;
+        cell.viewController = _viewController;
+        [cell initialize];
     }
-    return _multiColorsCell;
+    return cell;
 }
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ([self.expandedCellsArray containsObject:indexPath]) {
+        [self.expandedCellsArray removeObject:indexPath];
+    } else {
+        [self.expandedCellsArray addObject:indexPath];
+    }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     HLBaseCell *cell = (HLBaseCell *)[tableView cellForRowAtIndexPath:indexPath];
     if (!cell.disallowExpanding) {
+        [self.tableView beginUpdates];
         cell.expandedMode = !cell.expandedMode;
-        [tableView reloadData];
+        [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil]
+                              withRowAnimation:UITableViewRowAnimationFade];
+        [self.tableView endUpdates];
     }
 }
 

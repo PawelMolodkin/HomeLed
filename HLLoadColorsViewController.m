@@ -124,7 +124,8 @@
         [savedColorsArray removeObjectAtIndex:indexPath.row];
         [HLSettings shared].savedColorsArray = [savedColorsArray copy];
         _colorsArray = [HLSettings shared].savedColorsArray;
-        [_tableView reloadData];
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil]
+                              withRowAnimation:UITableViewRowAnimationFade];
     }
 }
 
