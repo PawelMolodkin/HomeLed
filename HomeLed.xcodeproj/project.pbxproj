@@ -39,6 +39,8 @@
 		7ED959191B7278D200925CF6 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED959181B7278D200925CF6 /* CoreMedia.framework */; };
 		C4880C6D1B750FE30040B43C /* HLPreviousColorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4880C6B1B750FE30040B43C /* HLPreviousColorsViewController.m */; };
 		C4880C6E1B750FE30040B43C /* HLPreviousColorsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4880C6C1B750FE30040B43C /* HLPreviousColorsViewController.xib */; };
+		C4F7E2A91B88B6E700B33348 /* HLWidthColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F7E2A71B88B6E700B33348 /* HLWidthColorViewController.m */; };
+		C4F7E2AA1B88B6E700B33348 /* HLWidthColorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4F7E2A81B88B6E700B33348 /* HLWidthColorViewController.xib */; };
 		C4FA8B011B76055C00769242 /* HLPreviousColorsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FA8AFF1B76055C00769242 /* HLPreviousColorsCell.m */; };
 		C4FA8B021B76055C00769242 /* HLPreviousColorsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4FA8B001B76055C00769242 /* HLPreviousColorsCell.xib */; };
 		C4FA8B061B7B47F400769242 /* HLSaveLoadColorsView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FA8B051B7B47F400769242 /* HLSaveLoadColorsView.m */; };
@@ -119,6 +121,9 @@
 		C4880C6A1B750FE30040B43C /* HLPreviousColorsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HLPreviousColorsViewController.h; path = ViewControllers/HLPreviousColorsViewController.h; sourceTree = "<group>"; };
 		C4880C6B1B750FE30040B43C /* HLPreviousColorsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HLPreviousColorsViewController.m; path = ViewControllers/HLPreviousColorsViewController.m; sourceTree = "<group>"; };
 		C4880C6C1B750FE30040B43C /* HLPreviousColorsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HLPreviousColorsViewController.xib; path = ViewControllers/HLPreviousColorsViewController.xib; sourceTree = "<group>"; };
+		C4F7E2A61B88B6E700B33348 /* HLWidthColorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLWidthColorViewController.h; sourceTree = "<group>"; };
+		C4F7E2A71B88B6E700B33348 /* HLWidthColorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLWidthColorViewController.m; sourceTree = "<group>"; };
+		C4F7E2A81B88B6E700B33348 /* HLWidthColorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HLWidthColorViewController.xib; sourceTree = "<group>"; };
 		C4FA8AFE1B76055C00769242 /* HLPreviousColorsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLPreviousColorsCell.h; sourceTree = "<group>"; };
 		C4FA8AFF1B76055C00769242 /* HLPreviousColorsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLPreviousColorsCell.m; sourceTree = "<group>"; };
 		C4FA8B001B76055C00769242 /* HLPreviousColorsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HLPreviousColorsCell.xib; sourceTree = "<group>"; };
@@ -180,6 +185,7 @@
 		7E55FCCB1B73EF9100F9DD75 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C4F7E2A51B88B6B000B33348 /* HLPopoverViewController */,
 				C4FA8B151B7C979300769242 /* HLLoadColorsViewController */,
 				7E55FD101B74137200F9DD75 /* HLSelectColorViewController */,
 				7E55FCD21B73F00700F9DD75 /* HLWelcomeViewController */,
@@ -433,6 +439,16 @@
 			name = HLPreviousColorsViewController;
 			sourceTree = "<group>";
 		};
+		C4F7E2A51B88B6B000B33348 /* HLPopoverViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C4F7E2A61B88B6E700B33348 /* HLWidthColorViewController.h */,
+				C4F7E2A71B88B6E700B33348 /* HLWidthColorViewController.m */,
+				C4F7E2A81B88B6E700B33348 /* HLWidthColorViewController.xib */,
+			);
+			name = HLPopoverViewController;
+			sourceTree = "<group>";
+		};
 		C4FA8B031B76056600769242 /* HLPreviousColorsCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -581,6 +597,7 @@
 				7E55FCE71B73F19D00F9DD75 /* HLNetworkAddressCell.xib in Resources */,
 				C4FA8B1D1B7E3C0D00769242 /* HLColorLineView.xib in Resources */,
 				C4880C6E1B750FE30040B43C /* HLPreviousColorsViewController.xib in Resources */,
+				C4F7E2AA1B88B6E700B33348 /* HLWidthColorViewController.xib in Resources */,
 				7E55FCC71B73EF7900F9DD75 /* LaunchScreen.xib in Resources */,
 				7E55FCC81B73EF7900F9DD75 /* Main.storyboard in Resources */,
 				C4FA8B141B7C978E00769242 /* HLLoadColorsViewController.xib in Resources */,
@@ -639,6 +656,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4FA8B131B7C978E00769242 /* HLLoadColorsViewController.m in Sources */,
+				C4F7E2A91B88B6E700B33348 /* HLWidthColorViewController.m in Sources */,
 				7E55FCC01B73EF6800F9DD75 /* AppDelegate.m in Sources */,
 				7E55FCD51B73F00F00F9DD75 /* HLGeneralPaintTableDataSource.m in Sources */,
 				7E55FCE11B73F04000F9DD75 /* HLRemoteClient.mm in Sources */,

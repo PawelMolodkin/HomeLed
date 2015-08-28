@@ -32,7 +32,8 @@
 
 + (void)setColorsList:(NSArray *)colorsList {
     NSMutableArray *colorsStringsList = [@[] mutableCopy];
-    for (UIColor *color in colorsList) {
+    for (NSDictionary *dictionary in colorsList) {
+        UIColor *color = dictionary[@"color"];
         [colorsStringsList addObject:[self stringWithColor:color]];
     }
     [self sendDictionary:@{@"command":@"Set Colors List", @"value":colorsStringsList}];

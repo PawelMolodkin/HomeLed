@@ -39,7 +39,7 @@ static CGFloat kColorLineHeight = 40.f;
 #pragma mark - Overriden
 - (CGFloat)expandedHeight
 {
-    return _titleLabel.height + _colorsArray.count * kColorLineHeight + _addColorButton.height + kColorLineHeight;
+    return _titleLabel.height + _colorsArray.count * kColorLineHeight + _addColorButton.height + kColorLineHeight * 2;
 }
 
 - (void)setExpandedMode:(BOOL)expandedMode
@@ -122,20 +122,19 @@ static CGFloat kColorLineHeight = 40.f;
         [[NSBundle mainBundle] loadNibNamed:@"HLSaveLoadColorsView" owner:self options:nil].firstObject;
     saveLoadView.completionBlock = ^void(BOOL finished) {
         wself.colorsArray = [HLSettings shared].multiColorsList;
-        UITableView *tableView = (UITableView *)wself.superview.superview;
-        [tableView reloadData];
+        [self reloadMultiColorsCell];
     };
     saveLoadView.viewController = _viewController;
     [_colorsListContentView addSubview:saveLoadView];
     NSInteger counter = 0;
 
-    for (UIColor *color in _colorsArray) {
+    for (NSDictionary *colorDictionary in _colorsArray) {
         HLColorLineView *colorLineView =
-            [[HLColorLineView alloc] initWithColor:color
+            [[HLColorLineView alloc] initWithColor:colorDictionary
                                didChangeColorBlock:^(UIColor *color, BOOL finished) {
                                    NSMutableArray *array = [wself.colorsArray mutableCopy];
                                    if (color) {
-                                       [array replaceObjectAtIndex:counter withObject:color];
+                                       [array replaceObjectAtIndex:counter withObject:colorDictionary];
                                    } else {
                                        [array removeObjectAtIndex:counter];
                                    }
@@ -144,12 +143,36 @@ static CGFloat kColorLineHeight = 40.f;
                                    } else {
                                        [HLRemoteClient setColorsList:array];
                                    }
+                                   [self reloadMultiColorsCell];
                                }];
+        NSMutableArray *mutableColorsArray = [_colorsArray mutableCopy];
+        NSDictionary *dictionary = [self.colorsArray objectAtIndex:counter];
+        NSString *valueString = [@"Width:" stringByAppendingString:[dictionary[@"width"] stringValue]];
+        [colorLineView.popoverWidthButton setTitle:valueString forState:UIControlStateNormal];
+        colorLineView.didChangeWidthColorBlock = ^(NSInteger widthValue) {
+            NSMutableDictionary *colorDict = [[wself.colorsArray objectAtIndex:counter] mutableCopy];
+            [colorDict setObject:@(widthValue) forKey:@"width"];
+            [mutableColorsArray replaceObjectAtIndex:counter withObject:[colorDict copy]];
+            self.colorsArray = [mutableColorsArray copy];
+        };
         ++counter;
         [_colorsListContentView addSubview:colorLineView];
     }
     _colorsListContentView.hidden = !self.expandedMode;
     [self setNeedsLayout];
+}
+
+- (void)reloadMultiColorsCell
+{
+    __weak typeof(self) wself = self;
+    UITableView *tableView = (UITableView *)wself.superview.superview;
+    NSIndexPath *indexPath = [tableView indexPathForCell:self];
+    if (!indexPath) {
+        return;
+    }
+    [tableView beginUpdates];
+    [tableView reloadRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationFade];
+    [tableView endUpdates];
 }
 
 #pragma mark - Observers
@@ -160,10 +183,14 @@ static CGFloat kColorLineHeight = 40.f;
                                        completion:^(UIColor *color, BOOL finished) {
                                            if (finished) {
                                                NSMutableArray *array = [wself.colorsArray mutableCopy];
-                                               [array addObject:color];
+                                               NSNumber *widthColor = @(1);
+                                               NSDictionary *colorDictionary = @{
+                                                   @"width" : widthColor,
+                                                   @"color" : color
+                                               };
+                                               [array addObject:colorDictionary];
                                                wself.colorsArray = array;
-                                               UITableView *tableView = (UITableView *)wself.superview.superview;
-                                               [tableView reloadData];
+                                               [self reloadMultiColorsCell];
                                            }
                                        }];
 }

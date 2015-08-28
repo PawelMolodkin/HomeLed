@@ -10,6 +10,9 @@
 
 @interface HLColorLineView : UIView
 
+@property(nonatomic, copy) void (^didChangeWidthColorBlock)(NSInteger widthValue);
+@property(strong, nonatomic) IBOutlet UIButton *popoverWidthButton;
+
 - (id)initWithColor:(UIColor *)color didChangeColorBlock:(void (^)(UIColor *color, BOOL finished))didChangeColorBlock;
 
 @end

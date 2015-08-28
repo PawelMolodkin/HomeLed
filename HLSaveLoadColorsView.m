@@ -10,6 +10,8 @@
 #import "HLLoadColorsViewController.h"
 #import "HLGeneralPaintViewController.h"
 
+static CGFloat kXOffset = 2.f;
+
 @interface HLSaveLoadColorsView ()
 
 @property(strong, nonatomic) NSString *nameAssemblyColors;
@@ -26,7 +28,28 @@
     _loadButton.layer.cornerRadius = 5.f;
 }
 
-- (void)layoutSubviews { [super layoutSubviews]; }
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    [self layoutSaveButton];
+    [self layoutLoadButton];
+}
+
+- (void)layoutSaveButton
+{
+    CGRect frame = _saveButton.frame;
+    frame.origin.x = kXOffset;
+    frame.size.width = self.bounds.size.width / 2 - kXOffset * 2;
+    _saveButton.frame = frame;
+}
+
+- (void)layoutLoadButton
+{
+    CGRect frame = _loadButton.frame;
+    frame.size.width = self.bounds.size.width / 2 - kXOffset * 2;
+    frame.origin.x = self.bounds.size.width - kXOffset - frame.size.width;
+    _loadButton.frame = frame;
+}
 
 - (IBAction)saveButtonTapped:(id)sender
 {
@@ -47,6 +70,9 @@
                                handler:^(UIAlertAction *action) {
                                    NSMutableArray *savedColorsArray =
                                        [[HLSettings shared].savedColorsArray mutableCopy];
+                                   if (!savedColorsArray) {
+                                       savedColorsArray = [NSMutableArray new];
+                                   }
                                    if (_nameAssemblyColors && [HLSettings shared].multiColorsList) {
                                        NSDictionary *descriptionDictionary = @{
                                            @"name" : _nameAssemblyColors,

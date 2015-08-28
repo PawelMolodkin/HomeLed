@@ -37,7 +37,14 @@
     self.ipAddress = @"192.168.100.12";
     self.port = @(8090);
     self.entireStripColor = [UIColor colorWithRed:255 green:128 blue:0 alpha:1.f];
-    self.multiColorsList = @[ [UIColor redColor], [UIColor greenColor] ];
+    self.multiColorsList = @[
+        @{ @"width" : @(1),
+           @"color" : [UIColor redColor] },
+        @{ @"width" : @(1),
+           @"color" : [UIColor yellowColor] },
+        @{ @"width" : @(1),
+           @"color" : [UIColor greenColor] }
+    ];
 }
 
 #pragma mark - Accessors

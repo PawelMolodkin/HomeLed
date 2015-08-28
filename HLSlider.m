@@ -8,9 +8,10 @@
 
 #import "HLSlider.h"
 
+static CGFloat kHeightWidthButton = 35.f;
+
 @interface HLSlider ()
 
-@property(strong, nonatomic) IBOutlet UISlider *slider;
 @property(strong, nonatomic) IBOutlet UIButton *minusButton;
 @property(strong, nonatomic) IBOutlet UIButton *plusButton;
 
@@ -28,6 +29,11 @@
     [_minusButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_plusButton setTitle:@"+" forState:UIControlStateNormal];
     [_plusButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    UIColor *backgroundColor = [UIColor colorWithRed:239.0 / 255.0 green:239.0 / 255.0 blue:239.0 / 255.0 alpha:1];
+    _minusButton.backgroundColor = backgroundColor;
+    _plusButton.backgroundColor = backgroundColor;
+    _minusButton.layer.cornerRadius = 10.f;
+    _plusButton.layer.cornerRadius = 10.f;
 
     [_minusButton addTarget:self action:@selector(tappedMinusButton:) forControlEvents:UIControlEventTouchUpInside];
     [_plusButton addTarget:self action:@selector(tappedPlusButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -49,8 +55,8 @@
     CGRect frame = self.frame;
     frame.origin.x = 0.f;
     frame.origin.y = 0.f;
-    frame.size.height = self.height;
-    frame.size.width = self.height;
+    frame.size.height = kHeightWidthButton;
+    frame.size.width = kHeightWidthButton;
     _minusButton.frame = frame;
 }
 
@@ -59,8 +65,8 @@
     CGRect frame = self.frame;
     frame.origin.x = _slider.width + _minusButton.width + 10.f;
     frame.origin.y = 0.f;
-    frame.size.height = self.height;
-    frame.size.width = self.height;
+    frame.size.height = kHeightWidthButton;
+    frame.size.width = kHeightWidthButton;
     _plusButton.frame = frame;
 }
 

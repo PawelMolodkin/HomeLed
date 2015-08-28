@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HLWidthColorViewController.h"
 
 @interface HLSlider : UIView
 
 @property(copy, nonatomic) dispatch_block_t valueChangedBlock;
+@property(strong, nonatomic) IBOutlet UISlider *slider;
 @property(assign, nonatomic) CGFloat value;
 
 @end

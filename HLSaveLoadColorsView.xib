@@ -8,7 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="GzR-85-UA6" customClass="HLSaveLoadColorsView">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="348" height="30"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Kty-J3-JGf">
@@ -35,11 +35,13 @@
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="loadButton" destination="Kty-J3-JGf" id="L65-Ca-dL0"/>
                 <outlet property="saveButton" destination="Nk5-BD-Imd" id="wQq-gD-k9w"/>
             </connections>
-            <point key="canvasLocation" x="303" y="271"/>
+            <point key="canvasLocation" x="317" y="2"/>
         </view>
     </objects>
 </document>
