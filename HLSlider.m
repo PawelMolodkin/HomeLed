@@ -41,6 +41,10 @@ static CGFloat kHeightWidthButton = 35.f;
     [self addSubview:_slider];
     [self addSubview:_minusButton];
     [self addSubview:_plusButton];
+
+    if (_bottomValueSlider == 0) {
+        _bottomValueSlider = 255;
+    }
 }
 
 - (void)layoutSubviews
@@ -83,11 +87,10 @@ static CGFloat kHeightWidthButton = 35.f;
 - (void)tappedMinusButton:(id)sender
 {
     CGFloat top = 1;
-    CGFloat bottom = 255;
     if (IsEqualFloat(_slider.value, 0)) {
         return;
     } else {
-        _slider.value -= top / bottom;
+        _slider.value -= top / _bottomValueSlider;
         [self valueChanged:nil];
     }
 }
@@ -95,11 +98,10 @@ static CGFloat kHeightWidthButton = 35.f;
 - (void)tappedPlusButton:(id)sender
 {
     CGFloat top = 1;
-    CGFloat bottom = 255;
-    if (IsEqualFloat(_slider.value, 255)) {
+    if (IsEqualFloat(_slider.value, _bottomValueSlider)) {
         return;
     } else {
-        _slider.value += top / bottom;
+        _slider.value += top / _bottomValueSlider;
         [self valueChanged:nil];
     }
 }

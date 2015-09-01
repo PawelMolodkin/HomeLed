@@ -14,5 +14,6 @@
 @property(copy, nonatomic) dispatch_block_t valueChangedBlock;
 @property(strong, nonatomic) IBOutlet UISlider *slider;
 @property(assign, nonatomic) CGFloat value;
+@property(assign, nonatomic) CGFloat bottomValueSlider;
 
 @end

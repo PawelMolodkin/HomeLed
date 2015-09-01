@@ -7,9 +7,11 @@
 //
 
 #import "HLGeneralPaintTableDataSource.h"
+#import "HLAnimationOptionsCell.h"
 #import "HLNetworkAddressCell.h"
 #import "HLChangeColorCell.h"
 #import "HLMultiColorsCell.h"
+#import "HLSettingsCell.h"
 
 @interface HLGeneralPaintTableDataSource ()<UITableViewDelegate, UITableViewDataSource>
 @property(weak, nonatomic) IBOutlet UITableView *tableView;
@@ -18,12 +20,11 @@
 @end
 
 @implementation HLGeneralPaintTableDataSource {
-    HLNetworkAddressCell *_networkAddressCell;
     NSInteger _indexOfNetworkAddressCell;
-    HLChangeColorCell *_changeColorCell;
     NSInteger _indexOfChangeColorCell;
-    HLMultiColorsCell *_multiColorsCell;
     NSInteger _indexOfMultiColorsCell;
+    NSInteger _indexOfAnimationOptionsCell;
+    NSInteger _indexOfSettingsCell;
 }
 
 - (id)init
@@ -42,6 +43,8 @@
     _indexOfNetworkAddressCell = numberOfCells++;
     _indexOfChangeColorCell = numberOfCells++;
     _indexOfMultiColorsCell = numberOfCells++;
+    _indexOfAnimationOptionsCell = numberOfCells++;
+    _indexOfSettingsCell = numberOfCells++;
     return numberOfCells;
 }
 
@@ -54,6 +57,10 @@
         cell = [self changeColorCell:indexPath];
     } else if (indexPath.row == _indexOfMultiColorsCell) {
         cell = [self multiColorsCell:indexPath];
+    } else if (indexPath.row == _indexOfAnimationOptionsCell) {
+        cell = [self animationsOptionsCell:indexPath];
+    } else if (indexPath.row == _indexOfSettingsCell) {
+        cell = [self settingsCell:indexPath];
     }
     cell.expandedMode = [self.expandedCellsArray containsObject:indexPath];
 
@@ -98,6 +105,27 @@
                [[NSBundle mainBundle] loadNibNamed:@"HLMultiColorsCell" owner:self options:nil].firstObject;
         cell.viewController = _viewController;
         [cell initialize];
+    }
+    return cell;
+}
+
+- (HLAnimationOptionsCell *)animationsOptionsCell:(NSIndexPath *)indexPath
+{
+    HLAnimationOptionsCell *cell =
+        [_tableView dequeueReusableCellWithIdentifier:[HLAnimationOptionsCell reuseIdentifier]];
+    if (!cell) {
+        cell = (HLAnimationOptionsCell *)
+               [[NSBundle mainBundle] loadNibNamed:@"HLAnimationOptionsCell" owner:self options:nil].firstObject;
+    }
+    return cell;
+}
+
+- (HLSettingsCell *)settingsCell:(NSIndexPath *)indexPath
+{
+    HLSettingsCell *cell = [_tableView dequeueReusableCellWithIdentifier:[HLSettingsCell reuseIdentifier]];
+    if (!cell) {
+        cell =
+            (HLSettingsCell *)[[NSBundle mainBundle] loadNibNamed:@"HLSettingsCell" owner:self options:nil].firstObject;
     }
     return cell;
 }

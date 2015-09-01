@@ -116,6 +116,32 @@
     [self synchronize];
 }
 
+- (CGFloat)brightnessValue { return [_userDefaults floatForKey:@"brightnessValue"]; }
+
+- (void)setBrightnessValue:(CGFloat)brightness
+{
+    [_userDefaults setFloat:brightness forKey:@"brightnessValue"];
+    [self synchronize];
+}
+
+- (CGFloat)speedAnimation { return [_userDefaults floatForKey:@"speedAnimation"]; }
+
+- (void)setSpeedAnimation:(CGFloat)speed
+{
+    [_userDefaults setFloat:speed forKey:@"speedAnimation"];
+    [self synchronize];
+}
+
+- (BOOL)animationEnabled { return [_userDefaults boolForKey:@"animationEnabled"]; }
+
+- (void)setAnimationEnabled:(BOOL)animation
+{
+    [_userDefaults setBool:animation forKey:@"animationEnabled"];
+    [self synchronize];
+}
+
 #pragma mark - Private Methods
+
 - (void)synchronize { [_userDefaults synchronize]; }
+
 @end

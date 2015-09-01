@@ -102,7 +102,7 @@ static CGFloat kXOffset = 10.f;
     };
     UINavigationController *navigationController =
         [[UINavigationController alloc] initWithRootViewController:sliderPopover];
-    sliderPopover.preferredContentSize = CGSizeMake(320, 60);
+    sliderPopover.preferredContentSize = CGSizeMake((self.bounds.size.width * 0.9f), 50);
     navigationController.modalPresentationStyle = UIModalPresentationPopover;
     UIPopoverPresentationController *popoverPresentationController = nil;
     popoverPresentationController = navigationController.popoverPresentationController;

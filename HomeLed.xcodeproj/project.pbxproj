@@ -37,8 +37,12 @@
 		7ED959151B72788500925CF6 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED959141B72788500925CF6 /* CoreAudio.framework */; };
 		7ED959171B7278B200925CF6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED959161B7278B200925CF6 /* AVFoundation.framework */; };
 		7ED959191B7278D200925CF6 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED959181B7278D200925CF6 /* CoreMedia.framework */; };
+		C412F43D1B95AAC80080BB74 /* HLSettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C412F43B1B95AAC80080BB74 /* HLSettingsCell.m */; settings = {ASSET_TAGS = (); }; };
+		C412F43E1B95AAC80080BB74 /* HLSettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C412F43C1B95AAC80080BB74 /* HLSettingsCell.xib */; settings = {ASSET_TAGS = (); }; };
 		C4880C6D1B750FE30040B43C /* HLPreviousColorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4880C6B1B750FE30040B43C /* HLPreviousColorsViewController.m */; };
 		C4880C6E1B750FE30040B43C /* HLPreviousColorsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4880C6C1B750FE30040B43C /* HLPreviousColorsViewController.xib */; };
+		C4F49DC91B90A093000FC065 /* HLAnimationOptionsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F49DC71B90A093000FC065 /* HLAnimationOptionsCell.m */; };
+		C4F49DCA1B90A093000FC065 /* HLAnimationOptionsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4F49DC81B90A093000FC065 /* HLAnimationOptionsCell.xib */; };
 		C4F7E2A91B88B6E700B33348 /* HLWidthColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F7E2A71B88B6E700B33348 /* HLWidthColorViewController.m */; };
 		C4F7E2AA1B88B6E700B33348 /* HLWidthColorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4F7E2A81B88B6E700B33348 /* HLWidthColorViewController.xib */; };
 		C4FA8B011B76055C00769242 /* HLPreviousColorsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FA8AFF1B76055C00769242 /* HLPreviousColorsCell.m */; };
@@ -118,9 +122,15 @@
 		7ED959141B72788500925CF6 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		7ED959161B7278B200925CF6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		7ED959181B7278D200925CF6 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		C412F43A1B95AAC80080BB74 /* HLSettingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLSettingsCell.h; sourceTree = "<group>"; };
+		C412F43B1B95AAC80080BB74 /* HLSettingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLSettingsCell.m; sourceTree = "<group>"; };
+		C412F43C1B95AAC80080BB74 /* HLSettingsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HLSettingsCell.xib; sourceTree = "<group>"; };
 		C4880C6A1B750FE30040B43C /* HLPreviousColorsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HLPreviousColorsViewController.h; path = ViewControllers/HLPreviousColorsViewController.h; sourceTree = "<group>"; };
 		C4880C6B1B750FE30040B43C /* HLPreviousColorsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HLPreviousColorsViewController.m; path = ViewControllers/HLPreviousColorsViewController.m; sourceTree = "<group>"; };
 		C4880C6C1B750FE30040B43C /* HLPreviousColorsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HLPreviousColorsViewController.xib; path = ViewControllers/HLPreviousColorsViewController.xib; sourceTree = "<group>"; };
+		C4F49DC61B90A093000FC065 /* HLAnimationOptionsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLAnimationOptionsCell.h; sourceTree = "<group>"; };
+		C4F49DC71B90A093000FC065 /* HLAnimationOptionsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLAnimationOptionsCell.m; sourceTree = "<group>"; };
+		C4F49DC81B90A093000FC065 /* HLAnimationOptionsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HLAnimationOptionsCell.xib; sourceTree = "<group>"; };
 		C4F7E2A61B88B6E700B33348 /* HLWidthColorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLWidthColorViewController.h; sourceTree = "<group>"; };
 		C4F7E2A71B88B6E700B33348 /* HLWidthColorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLWidthColorViewController.m; sourceTree = "<group>"; };
 		C4F7E2A81B88B6E700B33348 /* HLWidthColorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HLWidthColorViewController.xib; sourceTree = "<group>"; };
@@ -185,7 +195,7 @@
 		7E55FCCB1B73EF9100F9DD75 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				C4F7E2A51B88B6B000B33348 /* HLPopoverViewController */,
+				C4F7E2A51B88B6B000B33348 /* HLWidthColorViewController */,
 				C4FA8B151B7C979300769242 /* HLLoadColorsViewController */,
 				7E55FD101B74137200F9DD75 /* HLSelectColorViewController */,
 				7E55FCD21B73F00700F9DD75 /* HLWelcomeViewController */,
@@ -253,6 +263,8 @@
 		7E55FCE21B73F16B00F9DD75 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				C412F4361B95A9D10080BB74 /* HLSettingsCell */,
+				C4F49DC51B90A027000FC065 /* HLAnimationOptionsCell */,
 				7E55FD0A1B740D7800F9DD75 /* HLMultiColorsCell */,
 				7E55FCFA1B73F8BE00F9DD75 /* HLChangeColorCell */,
 				7E55FCE91B73F24500F9DD75 /* HLBaseCell */,
@@ -429,6 +441,16 @@
 			name = external;
 			sourceTree = "<group>";
 		};
+		C412F4361B95A9D10080BB74 /* HLSettingsCell */ = {
+			isa = PBXGroup;
+			children = (
+				C412F43A1B95AAC80080BB74 /* HLSettingsCell.h */,
+				C412F43B1B95AAC80080BB74 /* HLSettingsCell.m */,
+				C412F43C1B95AAC80080BB74 /* HLSettingsCell.xib */,
+			);
+			name = HLSettingsCell;
+			sourceTree = "<group>";
+		};
 		C4880C701B7510040040B43C /* HLPreviousColorsViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -439,14 +461,24 @@
 			name = HLPreviousColorsViewController;
 			sourceTree = "<group>";
 		};
-		C4F7E2A51B88B6B000B33348 /* HLPopoverViewController */ = {
+		C4F49DC51B90A027000FC065 /* HLAnimationOptionsCell */ = {
+			isa = PBXGroup;
+			children = (
+				C4F49DC61B90A093000FC065 /* HLAnimationOptionsCell.h */,
+				C4F49DC71B90A093000FC065 /* HLAnimationOptionsCell.m */,
+				C4F49DC81B90A093000FC065 /* HLAnimationOptionsCell.xib */,
+			);
+			name = HLAnimationOptionsCell;
+			sourceTree = "<group>";
+		};
+		C4F7E2A51B88B6B000B33348 /* HLWidthColorViewController */ = {
 			isa = PBXGroup;
 			children = (
 				C4F7E2A61B88B6E700B33348 /* HLWidthColorViewController.h */,
 				C4F7E2A71B88B6E700B33348 /* HLWidthColorViewController.m */,
 				C4F7E2A81B88B6E700B33348 /* HLWidthColorViewController.xib */,
 			);
-			name = HLPopoverViewController;
+			name = HLWidthColorViewController;
 			sourceTree = "<group>";
 		};
 		C4FA8B031B76056600769242 /* HLPreviousColorsCell */ = {
@@ -601,8 +633,10 @@
 				7E55FCC71B73EF7900F9DD75 /* LaunchScreen.xib in Resources */,
 				7E55FCC81B73EF7900F9DD75 /* Main.storyboard in Resources */,
 				C4FA8B141B7C978E00769242 /* HLLoadColorsViewController.xib in Resources */,
+				C4F49DCA1B90A093000FC065 /* HLAnimationOptionsCell.xib in Resources */,
 				C4FA8B281B838EF500769242 /* HLSlider.xib in Resources */,
 				C4FA8B171B7E056F00769242 /* HLSaveLoadColorsView.xib in Resources */,
+				C412F43E1B95AAC80080BB74 /* HLSettingsCell.xib in Resources */,
 				C4FA8B021B76055C00769242 /* HLPreviousColorsCell.xib in Resources */,
 				7E55FD0F1B740E2900F9DD75 /* HLMultiColorsCell.xib in Resources */,
 			);
@@ -659,9 +693,11 @@
 				C4F7E2A91B88B6E700B33348 /* HLWidthColorViewController.m in Sources */,
 				7E55FCC01B73EF6800F9DD75 /* AppDelegate.m in Sources */,
 				7E55FCD51B73F00F00F9DD75 /* HLGeneralPaintTableDataSource.m in Sources */,
+				C412F43D1B95AAC80080BB74 /* HLSettingsCell.m in Sources */,
 				7E55FCE11B73F04000F9DD75 /* HLRemoteClient.mm in Sources */,
 				7E55FD091B7405C800F9DD75 /* HLColorPicker.m in Sources */,
 				C4FA8B011B76055C00769242 /* HLPreviousColorsCell.m in Sources */,
+				C4F49DC91B90A093000FC065 /* HLAnimationOptionsCell.m in Sources */,
 				C4FA8B1B1B7E27EB00769242 /* HLColorLineView.m in Sources */,
 				7E55FCF81B73F8A200F9DD75 /* NKOColorPickerView.m in Sources */,
 				C4880C6D1B750FE30040B43C /* HLPreviousColorsViewController.m in Sources */,

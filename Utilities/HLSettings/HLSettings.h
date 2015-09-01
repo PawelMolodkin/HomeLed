@@ -16,6 +16,9 @@
 @property(strong, nonatomic) NSArray *multiColorsList;
 @property(strong, nonatomic) NSArray *previousColorsList;
 @property(strong, nonatomic) NSArray *savedColorsArray;
+@property(assign, nonatomic) CGFloat brightnessValue;
+@property(assign, nonatomic) CGFloat speedAnimation;
+@property(assign, nonatomic) BOOL animationEnabled;
 
 + (instancetype)shared;
 

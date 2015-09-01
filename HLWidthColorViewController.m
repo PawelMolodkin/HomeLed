@@ -10,7 +10,8 @@
 #import "HLGeneralPaintViewController.h"
 #import "HLSlider.h"
 
-static CGFloat kXOffset = 5.f;
+static CGFloat kWidthPopover = 0.9f;
+static CGFloat kXOffset = 10.f;
 static CGFloat kYOffset = 10.f;
 static CGFloat kSliderRange = 50.f;
 
@@ -19,7 +20,6 @@ static CGFloat kSliderRange = 50.f;
 @property(strong, nonatomic) IBOutlet HLSlider *slider;
 @property(strong, nonatomic) IBOutlet UILabel *sliderCountLabel;
 @property(strong, nonatomic) IBOutlet UIButton *finishButton;
-@property(copy, nonatomic) void (^completionBlock)(NSInteger value, BOOL finished);
 
 @end
 
@@ -30,6 +30,7 @@ static CGFloat kSliderRange = 50.f;
     HLWidthColorViewController *viewController =
         [[HLWidthColorViewController alloc] initWithNibName:@"HLWidthColorViewController" bundle:nil];
     [viewController view];
+    viewController.slider.bottomValueSlider = kSliderRange;
     viewController.slider.slider.minimumValue = 1.f / kSliderRange;
     viewController.slider.value = (float)value / kSliderRange;
     [viewController sliderValueChanged:nil];
@@ -63,8 +64,8 @@ static CGFloat kSliderRange = 50.f;
 - (void)layoutSlider
 {
     CGRect frame = self.slider.frame;
-    frame.size.width = self.view.width;
-    frame.origin.x = self.view.width / 2 - self.slider.width / 2 + kXOffset;
+    frame.size.width = self.view.bounds.size.width * kWidthPopover - 2 * kXOffset;
+    frame.origin.x = kXOffset;
     frame.origin.y = self.view.height / 2 - self.slider.height / 2 - kYOffset;
     self.slider.frame = frame;
 }
@@ -72,8 +73,8 @@ static CGFloat kSliderRange = 50.f;
 - (void)layoutSliderCountLabel
 {
     CGRect frame = self.sliderCountLabel.frame;
-    frame.origin.x = self.view.width / 2 - self.sliderCountLabel.width / 2 + kXOffset * 2;
-    frame.origin.y = self.view.height / 2 + self.sliderCountLabel.height / 2;
+    frame.origin.x = self.view.width / 2 - self.sliderCountLabel.width / 2 + kXOffset;
+    frame.origin.y = self.view.height - _slider.height;
     self.sliderCountLabel.frame = frame;
 }
 
