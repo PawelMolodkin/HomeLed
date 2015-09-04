@@ -16,8 +16,6 @@ static CGFloat kXOffset = 10.f;
 
 @interface HLColorLineView ()
 
-- (id)initWithColor:(UIColor *)color didChangeColorBlock:(void (^)(UIColor *color, BOOL finished))didChangeColorBlock;
-
 @property(nonatomic, copy) void (^didChangeColorBlock)(UIColor *color, BOOL finished);
 @property(strong, nonatomic) IBOutlet UIButton *colorButton;
 @property(strong, nonatomic) IBOutlet UIButton *removeColorButton;
@@ -26,8 +24,7 @@ static CGFloat kXOffset = 10.f;
 
 @implementation HLColorLineView
 
-- (id)initWithColor:(NSDictionary *)colorDictionary
-    didChangeColorBlock:(void (^)(UIColor *color, BOOL finished))didChangeColorBlock
+- (id)initWithColor:(UIColor *)color didChangeColorBlock:(void (^)(UIColor *color, BOOL finished))didChangeColorBlock
 {
     if (self = [super init]) {
         HLColorLineView *colorLineView =
@@ -35,7 +32,6 @@ static CGFloat kXOffset = 10.f;
             [[NSBundle mainBundle] loadNibNamed:@"HLColorLineView" owner:self options:nil].firstObject;
         self = colorLineView;
         self.didChangeColorBlock = didChangeColorBlock;
-        UIColor *color = colorDictionary[@"color"];
         CGFloat red = 0.0, green = 0.0, blue = 0.0, alpha = 0.0;
         [color getRed:&red green:&green blue:&blue alpha:&alpha];
         CGFloat multiplier = 1.f / MAX(red, MAX(green, blue));

@@ -17,6 +17,7 @@ static CGFloat kXOffset = 2.f;
 @property(strong, nonatomic) NSString *nameAssemblyColors;
 @property(strong, nonatomic) IBOutlet UIButton *saveButton;
 @property(strong, nonatomic) IBOutlet UIButton *loadButton;
+@property(strong, nonatomic) NSArray *colorsArray;
 
 @end
 
@@ -24,6 +25,7 @@ static CGFloat kXOffset = 2.f;
 
 - (void)awakeFromNib
 {
+    _colorsArray = [HLSettings shared].multiColorsList;
     _saveButton.layer.cornerRadius = 5.f;
     _loadButton.layer.cornerRadius = 5.f;
 }
@@ -106,11 +108,20 @@ static CGFloat kXOffset = 2.f;
 - (IBAction)loadButtonTapped:(id)sender
 {
     __weak typeof(self) wself = self;
-    [HLLoadColorsViewController presentLoadColorsWithCompletionBlock:^(BOOL finished) {
-        if (wself.completionBlock) {
-            wself.completionBlock(finished);
-        }
-    }];
+    [HLLoadColorsViewController presentLoadColorsFromViewController:nil
+                                                         completion:^(NSDictionary *dictionary) {
+                                                             NSArray *loadColorsArray = nil;
+                                                             if ([_colorsArray isKindOfClass:[NSArray class]]) {
+                                                                 if ([dictionary isKindOfClass:[NSDictionary class]]) {
+                                                                     loadColorsArray = dictionary[@"colorsArray"];
+                                                                     [HLSettings shared].multiColorsList =
+                                                                         loadColorsArray;
+                                                                 }
+                                                             }
+                                                             if (wself.completionBlock) {
+                                                                 wself.completionBlock(dictionary != nil);
+                                                             }
+                                                         }];
 }
 
 @end

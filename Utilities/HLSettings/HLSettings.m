@@ -116,6 +116,19 @@
     [self synchronize];
 }
 
+- (NSArray *)animationColorsArray
+{
+    NSData *data = [_userDefaults dataForKey:@"animationColorsArray"];
+    return [NSKeyedUnarchiver unarchiveObjectWithData:data];
+}
+
+- (void)setAnimationColorsArray:(NSArray *)animationColorsArray
+{
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:animationColorsArray];
+    [_userDefaults setObject:data forKey:@"animationColorsArray"];
+    [self synchronize];
+}
+
 - (CGFloat)brightnessValue { return [_userDefaults floatForKey:@"brightnessValue"]; }
 
 - (void)setBrightnessValue:(CGFloat)brightness

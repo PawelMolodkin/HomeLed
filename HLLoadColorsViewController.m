@@ -8,13 +8,15 @@
 
 #import "HLLoadColorsViewController.h"
 #import "HLGeneralPaintViewController.h"
+#import "HLColorsAnimationViewController.h"
 
 @interface HLLoadColorsViewController ()
 
 @property(strong, nonatomic) IBOutlet UITableView *tableView;
 @property(strong, nonatomic) NSArray *colorsArray;
 @property(strong, nonatomic) IBOutlet UIButton *cancelButton;
-@property(copy, nonatomic) void (^completionBlock)(BOOL finished);
+@property(copy, nonatomic) void (^completionBlock)(NSDictionary *dictionary);
+@property(strong, nonatomic) UIViewController *presentViewController;
 
 @end
 
@@ -22,21 +24,26 @@
 
 #pragma mark - Initialization
 
-+ (void)presentLoadColorsWithCompletionBlock:(void (^)(BOOL finished))completionBlock
++ (void)presentLoadColorsFromViewController:(UIViewController *)viewController
+                                 completion:(void (^)(NSDictionary *dictionary))completionBlock
 {
-    HLLoadColorsViewController *viewController =
+    HLLoadColorsViewController *loadViewController =
         [[HLLoadColorsViewController alloc] initWithNibName:@"HLLoadColorsViewController" bundle:nil];
-    viewController.completionBlock = completionBlock;
+    loadViewController.completionBlock = completionBlock;
     UINavigationController *navigationController =
-        [[UINavigationController alloc] initWithRootViewController:viewController];
-    [[HLGeneralPaintViewController shared] presentViewController:navigationController animated:YES completion:nil];
-    viewController.navigationItem.rightBarButtonItem = viewController.editButtonItem;
+        [[UINavigationController alloc] initWithRootViewController:loadViewController];
+    if (!viewController) {
+        viewController = [HLGeneralPaintViewController shared];
+    }
+    [viewController presentViewController:navigationController animated:YES completion:nil];
+    loadViewController.presentViewController = viewController;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     _colorsArray = [HLSettings shared].savedColorsArray;
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -88,22 +95,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSArray *loadColorsArray = nil;
     NSDictionary *loadColorsDictionary = nil;
     if (_colorsArray.count > indexPath.row) {
         if ([_colorsArray isKindOfClass:[NSArray class]]) {
             loadColorsDictionary = [_colorsArray objectAtIndex:indexPath.row];
-            if ([loadColorsDictionary isKindOfClass:[NSDictionary class]]) {
-                loadColorsArray = loadColorsDictionary[@"colorsArray"];
-                [HLSettings shared].multiColorsList = loadColorsArray;
-                __weak typeof(self) wself = self;
-                [[HLGeneralPaintViewController shared] dismissViewControllerAnimated:YES
-                                                                          completion:^{
-                                                                              if (wself.completionBlock) {
-                                                                                  wself.completionBlock(YES);
-                                                                              }
-                                                                          }];
-            }
+            __weak typeof(self) wself = self;
+            [self.presentViewController dismissViewControllerAnimated:YES
+                                                           completion:^{
+                                                               if (wself.completionBlock) {
+                                                                   wself.completionBlock(loadColorsDictionary);
+                                                               }
+                                                           }];
         }
     }
 }

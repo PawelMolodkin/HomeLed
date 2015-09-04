@@ -129,8 +129,9 @@ static CGFloat kColorLineHeight = 40.f;
     NSInteger counter = 0;
 
     for (NSDictionary *colorDictionary in _colorsArray) {
+        UIColor *colorLine = colorDictionary[@"color"];
         HLColorLineView *colorLineView =
-            [[HLColorLineView alloc] initWithColor:colorDictionary
+            [[HLColorLineView alloc] initWithColor:colorLine
                                didChangeColorBlock:^(UIColor *color, BOOL finished) {
                                    NSMutableArray *array = [wself.colorsArray mutableCopy];
                                    if (color) {

@@ -6,6 +6,8 @@
 //  Copyright © 2015 Voevoda's Incorporated. All rights reserved.
 //
 
+#import "HLColorsAnimationViewController.h"
+#import "HLGeneralPaintViewController.h"
 #import "HLAnimationOptionsCell.h"
 #import "HLSlider.h"
 
@@ -23,6 +25,7 @@ static CGFloat kSliderRange = 10.f;
 @property(strong, nonatomic) IBOutlet HLSlider *animationSpeedSlider;
 @property(strong, nonatomic) IBOutlet UILabel *valueSpeedLabel;
 @property(strong, nonatomic) IBOutlet UIView *view;
+@property(strong, nonatomic) IBOutlet UIButton *colorsAnimationButton;
 
 @end
 
@@ -32,6 +35,7 @@ static CGFloat kSliderRange = 10.f;
 
 - (void)awakeFromNib
 {
+    _colorsAnimationButton.layer.cornerRadius = 10.f;
     self.animationSpeedSlider.bottomValueSlider = 100.f;
     __weak typeof(self) wself = self;
     _animationSpeedSlider.valueChangedBlock = ^{ [wself sliderValueChanged:wself.animationSpeedSlider.value]; };
@@ -47,7 +51,7 @@ static CGFloat kSliderRange = 10.f;
 - (CGFloat)expandedHeight
 {
     return _titleLabel.height + _switchSettingsAnimation.height + _speedAnimationLabel.height +
-           _animationSpeedSlider.height + _valueSpeedLabel.height + kYOffset * 3;
+           _animationSpeedSlider.height + _valueSpeedLabel.height + _colorsAnimationButton.height + kYOffset * 4;
 }
 
 - (void)layoutSubviews
@@ -59,6 +63,7 @@ static CGFloat kSliderRange = 10.f;
     [self speedAnimationLabelLayout];
     [self animationSpeedSliderLayout];
     [self valueSpeedLabelLayout];
+    [self clorosAnimationButtonLayout];
 }
 
 - (void)titleLabelLayout
@@ -108,11 +113,21 @@ static CGFloat kSliderRange = 10.f;
 - (void)valueSpeedLabelLayout
 {
     CGRect frame = self.valueSpeedLabel.frame;
-    _valueSpeedLabel.width = self.bounds.size.width / 2;
-    frame.origin.x = (self.bounds.size.width - _valueSpeedLabel.width) / 2 + kXOffset;
+    frame.size.width = self.bounds.size.width / 2;
+    frame.origin.x = (self.bounds.size.width - frame.size.width) / 2;
     frame.origin.y = _titleLabel.height + _switchSettingsAnimation.height + _speedAnimationLabel.height +
                      _valueSpeedLabel.height + kYOffset;
     self.valueSpeedLabel.frame = frame;
+}
+
+- (void)clorosAnimationButtonLayout
+{
+    CGRect frame = self.colorsAnimationButton.frame;
+    frame.size.width = self.bounds.size.width / 2 + kXOffset * 2;
+    frame.origin.x = (self.bounds.size.width - frame.size.width) / 2;
+    frame.origin.y = _titleLabel.height + _switchSettingsAnimation.height + _speedAnimationLabel.height +
+                     _valueSpeedLabel.height + kYOffset * 2 + _speedAnimationLabel.height;
+    self.colorsAnimationButton.frame = frame;
 }
 
 - (void)setExpandedMode:(BOOL)expandedMode
@@ -123,6 +138,7 @@ static CGFloat kSliderRange = 10.f;
     _speedAnimationLabel.hidden = !expandedMode;
     _animationSpeedSlider.hidden = !expandedMode;
     _valueSpeedLabel.hidden = !expandedMode;
+    _colorsAnimationButton.hidden = !expandedMode;
     if (expandedMode) {
         _animationSpeedSlider.value = [HLSettings shared].speedAnimation;
         [self sliderValueChanged:_animationSpeedSlider.value];
@@ -145,5 +161,6 @@ static CGFloat kSliderRange = 10.f;
 {
     [HLSettings shared].animationEnabled = _switchSettingsAnimation.isOn;
 }
+- (IBAction)tappedColorsAnimationButton:(id)sender { [HLColorsAnimationViewController presentColorsAnimation]; }
 
 @end

@@ -10,6 +10,7 @@
 
 @interface HLLoadColorsViewController : UIViewController
 
-+ (void)presentLoadColorsWithCompletionBlock:(void (^)(BOOL finished))completionBlock;
++ (void)presentLoadColorsFromViewController:(UIViewController *)viewController
+                                 completion:(void (^)(NSDictionary *dictionary))completionBlock;
 
 @end
