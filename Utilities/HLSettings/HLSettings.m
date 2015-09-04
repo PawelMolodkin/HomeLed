@@ -129,6 +129,19 @@
     [self synchronize];
 }
 
+- (NSArray *)savedColorsAnimationArray
+{
+    NSData *data = [_userDefaults dataForKey:@"savedColorsAnimationArray"];
+    return [NSKeyedUnarchiver unarchiveObjectWithData:data];
+}
+
+- (void)setSavedColorsAnimationArray:(NSArray *)savedColorsAnimationArray
+{
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:savedColorsAnimationArray];
+    [_userDefaults setObject:data forKey:@"savedColorsAnimationArray"];
+    [self synchronize];
+}
+
 - (CGFloat)brightnessValue { return [_userDefaults floatForKey:@"brightnessValue"]; }
 
 - (void)setBrightnessValue:(CGFloat)brightness

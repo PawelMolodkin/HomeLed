@@ -14,7 +14,7 @@ static CGFloat kXOffset = 2.f;
 
 @interface HLSaveLoadColorsView ()
 
-@property(strong, nonatomic) NSString *nameAssemblyColors;
+@property(strong, nonatomic) UIAlertAction *okAction;
 @property(strong, nonatomic) IBOutlet UIButton *saveButton;
 @property(strong, nonatomic) IBOutlet UIButton *loadButton;
 @property(strong, nonatomic) NSArray *colorsArray;
@@ -66,44 +66,35 @@ static CGFloat kXOffset = 2.f;
                       action:@selector(alertTextFieldDidChange:)
             forControlEvents:UIControlEventEditingChanged];
     }];
-    UIAlertAction *okAction =
-        [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"OK action")
-                                 style:UIAlertActionStyleDefault
-                               handler:^(UIAlertAction *action) {
-                                   NSMutableArray *savedColorsArray =
-                                       [[HLSettings shared].savedColorsArray mutableCopy];
-                                   if (!savedColorsArray) {
-                                       savedColorsArray = [NSMutableArray new];
-                                   }
-                                   if (_nameAssemblyColors && [HLSettings shared].multiColorsList) {
-                                       NSDictionary *descriptionDictionary = @{
-                                           @"name" : _nameAssemblyColors,
-                                           @"colorsArray" : [HLSettings shared].multiColorsList
-                                       };
-                                       [savedColorsArray insertObject:descriptionDictionary atIndex:0];
-                                       [HLSettings shared].savedColorsArray = [savedColorsArray copy];
-                                   }
-                               }];
+    _okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"OK action")
+                                         style:UIAlertActionStyleDefault
+                                       handler:^(UIAlertAction *action) {
+                                           NSMutableArray *savedColorsArray =
+                                               [[HLSettings shared].savedColorsArray mutableCopy];
+                                           if (!savedColorsArray) {
+                                               savedColorsArray = [NSMutableArray new];
+                                           }
+                                           NSString *textName = alertController.textFields.firstObject.text;
+                                           if (textName && [HLSettings shared].multiColorsList) {
+                                               NSDictionary *descriptionDictionary = @{
+                                                   @"name" : textName,
+                                                   @"colorsArray" : [HLSettings shared].multiColorsList
+                                               };
+                                               [savedColorsArray insertObject:descriptionDictionary atIndex:0];
+                                               [HLSettings shared].savedColorsArray = [savedColorsArray copy];
+                                           }
+                                       }];
 
     UIAlertAction *closeAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Close", @"Close action")
                                                           style:UIAlertActionStyleDefault
                                                         handler:^(UIAlertAction *action) {}];
-    [alertController addAction:okAction];
+    [alertController addAction:_okAction];
     [alertController addAction:closeAction];
-    okAction.enabled = NO;
+    _okAction.enabled = NO;
     [_viewController presentViewController:alertController animated:YES completion:nil];
 }
 
-- (void)alertTextFieldDidChange:(UITextField *)sender
-{
-    UIAlertController *alertController = (UIAlertController *)_viewController.presentedViewController;
-    if (alertController) {
-        UITextField *login = alertController.textFields.firstObject;
-        UIAlertAction *okAction = alertController.actions.firstObject;
-        okAction.enabled = login.text.length > 0;
-        _nameAssemblyColors = alertController.textFields.firstObject.text;
-    }
-}
+- (void)alertTextFieldDidChange:(UITextField *)textField { _okAction.enabled = textField.text.length > 0; }
 
 - (IBAction)loadButtonTapped:(id)sender
 {

@@ -6,6 +6,7 @@
 //  Copyright © 2015 Voevoda's Incorporated. All rights reserved.
 //
 
+#import "HLLoadColorsAnimationViewController.h"
 #import "HLColorsAnimationViewController.h"
 #import "HLGeneralPaintViewController.h"
 #import "HLAnimationOptionsCell.h"
@@ -26,6 +27,9 @@ static CGFloat kSliderRange = 10.f;
 @property(strong, nonatomic) IBOutlet UILabel *valueSpeedLabel;
 @property(strong, nonatomic) IBOutlet UIView *view;
 @property(strong, nonatomic) IBOutlet UIButton *colorsAnimationButton;
+@property(strong, nonatomic) IBOutlet UIButton *saveColorsAnimationButton;
+@property(strong, nonatomic) IBOutlet UIButton *loadColorsAnimationButton;
+@property(strong, nonatomic) UIAlertAction *okAction;
 
 @end
 
@@ -36,6 +40,8 @@ static CGFloat kSliderRange = 10.f;
 - (void)awakeFromNib
 {
     _colorsAnimationButton.layer.cornerRadius = 10.f;
+    _saveColorsAnimationButton.layer.cornerRadius = 10.f;
+    _loadColorsAnimationButton.layer.cornerRadius = 10.f;
     self.animationSpeedSlider.bottomValueSlider = 100.f;
     __weak typeof(self) wself = self;
     _animationSpeedSlider.valueChangedBlock = ^{ [wself sliderValueChanged:wself.animationSpeedSlider.value]; };
@@ -51,8 +57,11 @@ static CGFloat kSliderRange = 10.f;
 - (CGFloat)expandedHeight
 {
     return _titleLabel.height + _switchSettingsAnimation.height + _speedAnimationLabel.height +
-           _animationSpeedSlider.height + _valueSpeedLabel.height + _colorsAnimationButton.height + kYOffset * 4;
+           _animationSpeedSlider.height + _valueSpeedLabel.height + _colorsAnimationButton.height +
+           _saveColorsAnimationButton.height + kYOffset * 5;
 }
+
+#pragma mark - Layout methods
 
 - (void)layoutSubviews
 {
@@ -63,7 +72,9 @@ static CGFloat kSliderRange = 10.f;
     [self speedAnimationLabelLayout];
     [self animationSpeedSliderLayout];
     [self valueSpeedLabelLayout];
-    [self clorosAnimationButtonLayout];
+    [self colorosAnimationButtonLayout];
+    [self saveColorsAnimationButtonLayout];
+    [self loadColorsAnimationButtonLayout];
 }
 
 - (void)titleLabelLayout
@@ -120,7 +131,7 @@ static CGFloat kSliderRange = 10.f;
     self.valueSpeedLabel.frame = frame;
 }
 
-- (void)clorosAnimationButtonLayout
+- (void)colorosAnimationButtonLayout
 {
     CGRect frame = self.colorsAnimationButton.frame;
     frame.size.width = self.bounds.size.width / 2 + kXOffset * 2;
@@ -129,6 +140,30 @@ static CGFloat kSliderRange = 10.f;
                      _valueSpeedLabel.height + kYOffset * 2 + _speedAnimationLabel.height;
     self.colorsAnimationButton.frame = frame;
 }
+
+- (void)saveColorsAnimationButtonLayout
+{
+    CGRect frame = self.saveColorsAnimationButton.frame;
+    frame.size.width = self.bounds.size.width / 2 - kXOffset;
+    frame.origin.x = kXOffset / 2;
+    frame.origin.y = _titleLabel.height + _switchSettingsAnimation.height + _speedAnimationLabel.height +
+                     _valueSpeedLabel.height + kYOffset * 3 + _speedAnimationLabel.height +
+                     self.colorsAnimationButton.height;
+    self.saveColorsAnimationButton.frame = frame;
+}
+
+- (void)loadColorsAnimationButtonLayout
+{
+    CGRect frame = self.loadColorsAnimationButton.frame;
+    frame.size.width = self.bounds.size.width / 2 - kXOffset;
+    frame.origin.x = self.bounds.size.width / 2 + kXOffset / 2;
+    frame.origin.y = _titleLabel.height + _switchSettingsAnimation.height + _speedAnimationLabel.height +
+                     _valueSpeedLabel.height + kYOffset * 3 + _speedAnimationLabel.height +
+                     self.colorsAnimationButton.height;
+    self.loadColorsAnimationButton.frame = frame;
+}
+
+#pragma mark - Expended cell methods
 
 - (void)setExpandedMode:(BOOL)expandedMode
 {
@@ -139,6 +174,8 @@ static CGFloat kSliderRange = 10.f;
     _animationSpeedSlider.hidden = !expandedMode;
     _valueSpeedLabel.hidden = !expandedMode;
     _colorsAnimationButton.hidden = !expandedMode;
+    _saveColorsAnimationButton.hidden = !expandedMode;
+    _loadColorsAnimationButton.hidden = !expandedMode;
     if (expandedMode) {
         _animationSpeedSlider.value = [HLSettings shared].speedAnimation;
         [self sliderValueChanged:_animationSpeedSlider.value];
@@ -149,6 +186,8 @@ static CGFloat kSliderRange = 10.f;
         _titleLabel.backgroundColor = [UIColor whiteColor];
     }
 }
+
+#pragma mark - Action methods
 
 - (void)sliderValueChanged:(CGFloat)value
 {
@@ -162,5 +201,64 @@ static CGFloat kSliderRange = 10.f;
     [HLSettings shared].animationEnabled = _switchSettingsAnimation.isOn;
 }
 - (IBAction)tappedColorsAnimationButton:(id)sender { [HLColorsAnimationViewController presentColorsAnimation]; }
+
+- (IBAction)tappedSaveColorsAnimationButton:(id)sender
+{
+    UIAlertController *alertController =
+        [UIAlertController alertControllerWithTitle:@"Сохранить сборку для анимации"
+                                            message:@"Введите название сборки"
+                                     preferredStyle:UIAlertControllerStyleAlert];
+
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = NSLocalizedString(@"Name", @"NamePlaceholder");
+        [textField addTarget:self
+                      action:@selector(alertTextFieldDidChange:)
+            forControlEvents:UIControlEventEditingChanged];
+    }];
+    _okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"OK action")
+                                         style:UIAlertActionStyleDefault
+                                       handler:^(UIAlertAction *action) {
+                                           NSMutableArray *savedColorsAnimationArray =
+                                               [[HLSettings shared].savedColorsAnimationArray mutableCopy];
+                                           if (!savedColorsAnimationArray) {
+                                               savedColorsAnimationArray = [NSMutableArray new];
+                                           }
+                                           NSString *textName = alertController.textFields.firstObject.text;
+                                           if (textName && [HLSettings shared].animationColorsArray) {
+                                               NSDictionary *descriptionDictionary = @{
+                                                   @"nameAnimation" : textName,
+                                                   @"colorsAnimationArray" : [HLSettings shared].animationColorsArray
+                                               };
+                                               [savedColorsAnimationArray insertObject:descriptionDictionary atIndex:0];
+                                               [HLSettings shared].savedColorsAnimationArray =
+                                                   [savedColorsAnimationArray copy];
+                                           }
+                                       }];
+
+    UIAlertAction *closeAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Close", @"Close action")
+                                                          style:UIAlertActionStyleDefault
+                                                        handler:^(UIAlertAction *action) {}];
+    [alertController addAction:_okAction];
+    [alertController addAction:closeAction];
+    _okAction.enabled = NO;
+    [[HLGeneralPaintViewController shared] presentViewController:alertController animated:YES completion:nil];
+}
+
+- (IBAction)tappedLoadColorsAnimationButton:(id)sender
+{
+    [HLLoadColorsAnimationViewController presentLoadColorsWithCompletion:^(NSDictionary *dictionary) {
+        if (dictionary) {
+            NSMutableArray *loadAnimationColorsArray = [NSMutableArray new];
+            if ([dictionary isKindOfClass:[NSDictionary class]]) {
+                loadAnimationColorsArray = dictionary[@"colorsAnimationArray"];
+                [HLSettings shared].animationColorsArray = [loadAnimationColorsArray copy];
+            }
+        }
+    }];
+}
+
+#pragma mark - Allert methods
+
+- (void)alertTextFieldDidChange:(UITextField *)textField { _okAction.enabled = textField.text.length > 0; }
 
 @end
