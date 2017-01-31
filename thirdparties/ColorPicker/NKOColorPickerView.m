@@ -197,6 +197,9 @@ CGFloat const NKOPickerViewCrossHairshWidthAndHeight    = 38.f;
 
 - (void)_updateHueSatWithMovement:(CGPoint)position
 {
+    if (currentBrightness > 1.f) {
+        currentBrightness = 1.f;
+    }
 	currentHue = (position.x - self.hueSatImage.frame.origin.x) / self.hueSatImage.frame.size.width;
 	currentSaturation = 1.0 -  (position.y - self.hueSatImage.frame.origin.y) / self.hueSatImage.frame.size.height;
     

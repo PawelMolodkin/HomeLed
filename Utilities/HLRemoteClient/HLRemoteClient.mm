@@ -39,6 +39,13 @@
     [self sendDictionary:@{@"command":@"Set Colors List", @"value":colorsStringsList}];
 }
 
++ (void)setAnimationEnabled:(BOOL)enabled speed:(CGFloat)speed toRight:(BOOL)toRight {
+    if (!enabled) {
+        speed = 0.f;
+    }
+    [self sendDictionary:@{@"command":@"Linear Animation", @"enabled":@(enabled), @"speed":@(speed), @"toRight":@(toRight)}];
+}
+
 #pragma mark - Private Methods
 + (NSString *)stringWithColor:(UIColor *)color {
     CGFloat red, green, blue;

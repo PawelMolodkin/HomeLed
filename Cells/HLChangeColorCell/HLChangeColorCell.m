@@ -29,6 +29,7 @@
     [self.contentView addSubview:_colorPicker];
     _colorPicker.hidden = YES;
     __weak typeof (self) wself = self;
+    _colorPicker.colorPicker.color = [HLSettings shared].entireStripColor;
     
     _colorPicker.colorPicker.touchesBlock = ^(BOOL touchesEnded) {
         if (touchesEnded) {
@@ -48,7 +49,6 @@
         [HLSettings shared].entireStripColor = color;
         [HLRemoteClient setColor:color];
     };
-    _colorPicker.colorPicker.color = [HLSettings shared].entireStripColor;
 }
 
 #pragma mark - UIView

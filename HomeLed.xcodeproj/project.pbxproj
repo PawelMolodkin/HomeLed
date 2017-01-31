@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		24B19B725E37184C8604EB45 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEE9C0DE83B2A2667E7699C7 /* libPods.a */; };
+		4BAF0C951E3E4D2800F89DB0 /* HLGeneralPaintViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BAF0C941E3E4D2800F89DB0 /* HLGeneralPaintViewController.xib */; };
 		7E55FCBD1B73EF5E00F9DD75 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E55FCBB1B73EF5E00F9DD75 /* main.m */; };
 		7E55FCC01B73EF6800F9DD75 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E55FCBF1B73EF6800F9DD75 /* AppDelegate.m */; };
 		7E55FCC71B73EF7900F9DD75 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E55FCC31B73EF7900F9DD75 /* LaunchScreen.xib */; };
@@ -37,12 +38,12 @@
 		7ED959151B72788500925CF6 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED959141B72788500925CF6 /* CoreAudio.framework */; };
 		7ED959171B7278B200925CF6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED959161B7278B200925CF6 /* AVFoundation.framework */; };
 		7ED959191B7278D200925CF6 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED959181B7278D200925CF6 /* CoreMedia.framework */; };
-		C412F43D1B95AAC80080BB74 /* HLSettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C412F43B1B95AAC80080BB74 /* HLSettingsCell.m */; settings = {ASSET_TAGS = (); }; };
-		C412F43E1B95AAC80080BB74 /* HLSettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C412F43C1B95AAC80080BB74 /* HLSettingsCell.xib */; settings = {ASSET_TAGS = (); }; };
-		C412F4431B971B9C0080BB74 /* HLColorsAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C412F4411B971B9C0080BB74 /* HLColorsAnimationViewController.m */; settings = {ASSET_TAGS = (); }; };
-		C412F4441B971B9C0080BB74 /* HLColorsAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C412F4421B971B9C0080BB74 /* HLColorsAnimationViewController.xib */; settings = {ASSET_TAGS = (); }; };
-		C412F4491B99D6420080BB74 /* HLLoadColorsAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C412F4471B99D6420080BB74 /* HLLoadColorsAnimationViewController.m */; settings = {ASSET_TAGS = (); }; };
-		C412F44A1B99D6420080BB74 /* HLLoadColorsAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C412F4481B99D6420080BB74 /* HLLoadColorsAnimationViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		C412F43D1B95AAC80080BB74 /* HLSettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C412F43B1B95AAC80080BB74 /* HLSettingsCell.m */; };
+		C412F43E1B95AAC80080BB74 /* HLSettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C412F43C1B95AAC80080BB74 /* HLSettingsCell.xib */; };
+		C412F4431B971B9C0080BB74 /* HLColorsAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C412F4411B971B9C0080BB74 /* HLColorsAnimationViewController.m */; };
+		C412F4441B971B9C0080BB74 /* HLColorsAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C412F4421B971B9C0080BB74 /* HLColorsAnimationViewController.xib */; };
+		C412F4491B99D6420080BB74 /* HLLoadColorsAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C412F4471B99D6420080BB74 /* HLLoadColorsAnimationViewController.m */; };
+		C412F44A1B99D6420080BB74 /* HLLoadColorsAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C412F4481B99D6420080BB74 /* HLLoadColorsAnimationViewController.xib */; };
 		C4880C6D1B750FE30040B43C /* HLPreviousColorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4880C6B1B750FE30040B43C /* HLPreviousColorsViewController.m */; };
 		C4880C6E1B750FE30040B43C /* HLPreviousColorsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4880C6C1B750FE30040B43C /* HLPreviousColorsViewController.xib */; };
 		C4F49DC91B90A093000FC065 /* HLAnimationOptionsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F49DC71B90A093000FC065 /* HLAnimationOptionsCell.m */; };
@@ -73,6 +74,7 @@
 
 /* Begin PBXFileReference section */
 		4BA36196C09CD51A35DD1C30 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		4BAF0C941E3E4D2800F89DB0 /* HLGeneralPaintViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HLGeneralPaintViewController.xib; path = ViewControllers/HLGeneralPaintViewController/HLGeneralPaintViewController.xib; sourceTree = "<group>"; };
 		7E2F2ACF1B7271D30047C796 /* asynctcpsocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = asynctcpsocket.h; path = ../../trunk/webrtc/base/asynctcpsocket.h; sourceTree = "<group>"; };
 		7E2F2AD01B7271D30047C796 /* asynctcpsocket.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = asynctcpsocket.cc; path = ../../trunk/webrtc/base/asynctcpsocket.cc; sourceTree = "<group>"; };
 		7E55FCBA1B73EF5E00F9DD75 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Startup/Info.plist; sourceTree = SOURCE_ROOT; };
@@ -250,6 +252,7 @@
 			children = (
 				7E55FCD61B73F01800F9DD75 /* HLGeneralPaintViewController.h */,
 				7E55FCD71B73F01800F9DD75 /* HLGeneralPaintViewController.m */,
+				4BAF0C941E3E4D2800F89DB0 /* HLGeneralPaintViewController.xib */,
 			);
 			name = HLGeneralPaintViewController;
 			sourceTree = "<group>";
@@ -623,6 +626,7 @@
 				TargetAttributes = {
 					7E56F0581B7150E000C0BCC5 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 45ZD3L6ZWV;
 					};
 					7E56F0711B7150E000C0BCC5 = {
 						CreatedOnToolsVersion = 6.4;
@@ -658,6 +662,7 @@
 				C412F4441B971B9C0080BB74 /* HLColorsAnimationViewController.xib in Resources */,
 				7E55FD061B7405B500F9DD75 /* HLColorPicker.xib in Resources */,
 				7E55FD151B74139100F9DD75 /* HLSelectColorViewController.xib in Resources */,
+				4BAF0C951E3E4D2800F89DB0 /* HLGeneralPaintViewController.xib in Resources */,
 				7E55FD021B73F93F00F9DD75 /* HLChangeColorCell.xib in Resources */,
 				7E55FCE71B73F19D00F9DD75 /* HLNetworkAddressCell.xib in Resources */,
 				C4FA8B1D1B7E3C0D00769242 /* HLColorLineView.xib in Resources */,
@@ -877,6 +882,7 @@
 			buildSettings = {
 				ARCHS = armv7;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 45ZD3L6ZWV;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Startup/HomeLed.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -911,6 +917,7 @@
 			buildSettings = {
 				ARCHS = armv7;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 45ZD3L6ZWV;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Startup/HomeLed.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (

@@ -10,6 +10,7 @@
 #import "HLColorsAnimationViewController.h"
 #import "HLGeneralPaintViewController.h"
 #import "HLAnimationOptionsCell.h"
+#import "HLRemoteClient.h"
 #import "HLSlider.h"
 
 static CGFloat kXOffset = 10.f;
@@ -189,17 +190,35 @@ static CGFloat kSliderRange = 10.f;
 
 #pragma mark - Action methods
 
+- (CGFloat)speedValue {
+    CGFloat sliderValue = kSliderRange * _animationSpeedSlider.value;
+    CGFloat rounded = sliderValue < 0.1f ? 0.1f : floorf(sliderValue * 10) / 10;
+    rounded /= 10;
+    return rounded;
+}
+
 - (void)sliderValueChanged:(CGFloat)value
 {
-    CGFloat sliderValue = kSliderRange * _animationSpeedSlider.value;
-    float rounded = sliderValue < 0.1f ? 0.1f : floorf(sliderValue * 10) / 10;
-    _valueSpeedLabel.text = [@(rounded) stringValue];
+    _valueSpeedLabel.text = [@([self speedValue]) stringValue];
     [HLSettings shared].speedAnimation = value;
+    [self send];
 }
-- (IBAction)actionSwitchSettingsAnimation:(BOOL)isOn
+
+- (IBAction)actionSwitchSettingsAnimation:(id)sender
 {
     [HLSettings shared].animationEnabled = _switchSettingsAnimation.isOn;
+    [self doSend];
 }
+
+- (void)send {
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(doSend) object:nil];
+    [self performSelector:@selector(doSend) withObject:nil afterDelay:0.3];
+}
+
+- (void)doSend {
+    [HLRemoteClient setAnimationEnabled:_switchSettingsAnimation.on speed:[self speedValue] toRight:YES];
+}
+
 - (IBAction)tappedColorsAnimationButton:(id)sender { [HLColorsAnimationViewController presentColorsAnimation]; }
 
 - (IBAction)tappedSaveColorsAnimationButton:(id)sender

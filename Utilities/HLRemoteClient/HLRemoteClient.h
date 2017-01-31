@@ -14,4 +14,6 @@
 
 + (void)setColorsList:(NSArray *)colorsList;
 
++ (void)setAnimationEnabled:(BOOL)enabled speed:(CGFloat)speed toRight:(BOOL)toRight;
+
 @end
