@@ -46,6 +46,24 @@
     [self sendDictionary:@{@"command":@"Linear Animation", @"enabled":@(enabled), @"speed":@(speed), @"toRight":@(toRight)}];
 }
 
+
++ (void)setAnimationColorsList:(NSArray *)array speed:(CGFloat)speed framesCount:(CGFloat)framesCount {
+    NSMutableArray *colorsArray = [NSMutableArray new];
+    for (NSDictionary *dictionary in array) {
+        NSArray *internalArray = dictionary[@"colorsArray"];
+        if (![internalArray isKindOfClass:[NSArray class]]) {
+            continue;
+        }
+        NSMutableArray *internalMutableArray = [NSMutableArray new];
+        for (NSDictionary *colorsData in internalArray) {
+            UIColor *color = colorsData[@"color"];
+            [internalMutableArray addObject:[self stringWithColor:color]];
+        }
+        [colorsArray addObject:internalMutableArray];
+    }
+    [self sendDictionary:@{@"command":@"Animated Colors Sets", @"speed":@(speed), @"framesCount":@(framesCount), @"colors-lists-array":colorsArray}];
+}
+
 #pragma mark - Private Methods
 + (NSString *)stringWithColor:(UIColor *)color {
     CGFloat red, green, blue;

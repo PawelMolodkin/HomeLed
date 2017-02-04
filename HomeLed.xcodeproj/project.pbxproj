@@ -626,7 +626,8 @@
 				TargetAttributes = {
 					7E56F0581B7150E000C0BCC5 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = 45ZD3L6ZWV;
+						DevelopmentTeam = L2QFT5NA2Q;
+						ProvisioningStyle = Manual;
 					};
 					7E56F0711B7150E000C0BCC5 = {
 						CreatedOnToolsVersion = 6.4;
@@ -882,7 +883,8 @@
 			buildSettings = {
 				ARCHS = armv7;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 45ZD3L6ZWV;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = L2QFT5NA2Q;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Startup/HomeLed.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -906,7 +908,10 @@
 					"/Users/evengeros/Desktop/oxydesk-ios/trunk/out_sim/Debug-iphonesimulator",
 					"../../trunk/out_sim/Debug-iphonesimulator",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "ru.mail.horoscope-alpha-enterprise";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "08957822-d289-4690-afa6-9ea1ef5a4d45";
+				PROVISIONING_PROFILE_SPECIFIER = "Horoscope Alpha Enterprise";
 				VALID_ARCHS = armv7;
 			};
 			name = Debug;
@@ -917,7 +922,8 @@
 			buildSettings = {
 				ARCHS = armv7;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 45ZD3L6ZWV;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = L2QFT5NA2Q;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Startup/HomeLed.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -941,7 +947,10 @@
 					"/Users/evengeros/Desktop/oxydesk-ios/trunk/out_sim/Debug-iphonesimulator",
 					"../../trunk/out_sim/Debug-iphonesimulator",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "ru.mail.horoscope-alpha-enterprise";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "08957822-d289-4690-afa6-9ea1ef5a4d45";
+				PROVISIONING_PROFILE_SPECIFIER = "Horoscope Alpha Enterprise";
 				VALID_ARCHS = armv7;
 			};
 			name = Release;

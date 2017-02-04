@@ -148,7 +148,7 @@ static CGFloat kColorLineHeight = 40.f;
                                }];
         NSMutableArray *mutableColorsArray = [_colorsArray mutableCopy];
         NSDictionary *dictionary = [self.colorsArray objectAtIndex:counter];
-        NSString *valueString = [@"Width:" stringByAppendingString:[dictionary[@"width"] stringValue]];
+        NSString *valueString = @"";//[@"Width:" stringByAppendingString:[dictionary[@"width"] stringValue]];
         [colorLineView.popoverWidthButton setTitle:valueString forState:UIControlStateNormal];
         colorLineView.didChangeWidthColorBlock = ^(NSInteger widthValue) {
             NSMutableDictionary *colorDict = [[wself.colorsArray objectAtIndex:counter] mutableCopy];

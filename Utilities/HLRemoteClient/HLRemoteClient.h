@@ -16,4 +16,6 @@
 
 + (void)setAnimationEnabled:(BOOL)enabled speed:(CGFloat)speed toRight:(BOOL)toRight;
 
++ (void)setAnimationColorsList:(NSArray *)array speed:(CGFloat)speed framesCount:(CGFloat)framesCount;
+
 @end

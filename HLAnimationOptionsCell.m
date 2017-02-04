@@ -271,6 +271,7 @@ static CGFloat kSliderRange = 10.f;
             if ([dictionary isKindOfClass:[NSDictionary class]]) {
                 loadAnimationColorsArray = dictionary[@"colorsAnimationArray"];
                 [HLSettings shared].animationColorsArray = [loadAnimationColorsArray copy];
+                [HLRemoteClient setAnimationColorsList:loadAnimationColorsArray speed:0.1 framesCount:0.1];
             }
         }
     }];
